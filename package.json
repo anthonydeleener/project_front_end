@@ -1,0 +1,26 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "projet groupe19  dobble frontend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anthonydeleener/project_front_end.git"
+  },
+  "author": "Anthony De Leener,Chih Huai Lin, Joachim Renard, Thibaut Gerard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anthonydeleener/project_front_end/issues"
+  },
+  "homepage": "https://github.com/anthonydeleener/project_front_end#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.15"
+  }
+}
