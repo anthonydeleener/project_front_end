@@ -1,26 +1,31 @@
 {
-  "name": "frontend",
-  "version": "1.0.0",
-  "description": "projet groupe19  dobble frontend",
-  "main": "index.js",
+  "name": "film-frontend",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/anthonydeleener/project_front_end.git"
-  },
-  "author": "Anthony De Leener,Chih Huai Lin, Joachim Renard, Thibaut Gerard",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/anthonydeleener/project_front_end/issues"
-  },
-  "homepage": "https://github.com/anthonydeleener/project_front_end#readme",
   "dependencies": {
-    "express": "^4.17.1",
-    "mongoose": "^5.10.15"
+    "bootstrap": "^4.5.2",
+    "customizable-analog-clock": "^1.0.1",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^4.2.1",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "author": {
+    "name": "e-Baron"
   }
 }
