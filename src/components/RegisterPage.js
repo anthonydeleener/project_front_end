@@ -8,6 +8,10 @@ escaped using the escape character \ if they are to be included in their templat
 By default, all escape sequences in a template literal are ignored.*/
 let registerPage = `<form>
 <div class="form-group">
+  <label for="username">Username</label>
+  <input class="form-control" id="username" type="text" name="username" placeholder="Enter your username" required="" pattern="^\\[a-zA-Z0-9_]{4,16}\$" />
+</div>
+<div class="form-group">
   <label for="email">Email</label>
   <input class="form-control" id="email" type="text" name="email" placeholder="Enter your email" required="" pattern="^\\w+([.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,4})+\$" />
 </div>
@@ -31,6 +35,7 @@ const RegisterPage = () => {
 const onRegister = (e) => {
   e.preventDefault();
   let user = {
+    username: document.getElementById("username").value,
     email: document.getElementById("email").value,
     password: document.getElementById("password").value,
   };
@@ -56,7 +61,7 @@ const onUserRegistration = (userData) => {
   setUserSessionData(user);
   // re-render the navbar for the authenticated user
   Navbar();
-  RedirectUrl("/films");
+  RedirectUrl("/"); //Redirect vers la page ingame
 };
 
 const onError = (err) => {
