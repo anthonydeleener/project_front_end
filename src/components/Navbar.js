@@ -30,7 +30,7 @@ const Navbar = () => {
   </div>
   </nav>`;
   } else {
-    navbar = `<nav class="navbar navbar-expand-lg navbar-light bg-light mb-2" id="navBar">
+    navbar = `<nav class="navbar navbar-expand-lg bg-dark mb-2" id="navBar">
   <a class="navbar-brand" href="/" data-uri="/">MyCMS</a
   ><button
     class="navbar-toggler"
