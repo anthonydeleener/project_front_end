@@ -9,8 +9,8 @@ import { setLayout } from "../utils/render.js";
 
 let loginPage = `<form>
 <div class="form-group">
-  <label for="email">Email</label>
-  <input class="form-control" id="email" type="text" name="email" placeholder="Enter your email" required="" pattern="^\\w+([.-]?\\w+)*@\\w+([\.-]?\\w+)*(\\.\\w{2,4})+\$" />
+  <label for="username">Username</label>
+  <input class="form-control" id="username" type="text" name="username" placeholder="Enter your username" required="" pattern="^\\[a-zA-Z0-9_]{4,16}\$" />
 </div>
 <div class="form-group">
   <label for="password">Password</label>
@@ -36,11 +36,11 @@ const LoginPage = () => {
 
 const onLogin = (e) => {
   e.preventDefault();
-  let email = document.getElementById("email");
+  let username = document.getElementById("username");
   let password = document.getElementById("password");
 
   let user = {
-    email: document.getElementById("email").value,
+    username: document.getElementById("username").value,
     password: document.getElementById("password").value,
   };
  
@@ -69,7 +69,7 @@ const onUserLogin = (userData) => {
   setUserSessionData(user);
   // re-render the navbar for the authenticated user
   Navbar();
-  RedirectUrl("/films");
+  RedirectUrl("/");
 };
 
 const onError = (err) => {
