@@ -8,7 +8,7 @@ import AddFilm from "./Film/AddFilm.js";
 import FilmListPage from "./Film/FilmListPage.js";
 
 const routes = {
-  "/": HomePage,
+  "/": LoginPage,
   "/users": UserListPage,
   "/login": LoginPage,
   "/register": RegisterPage,

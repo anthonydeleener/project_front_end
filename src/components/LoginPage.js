@@ -7,7 +7,8 @@ import Navbar from "./Navbar.js";
 import { setLayout } from "../utils/render.js";
 
 
-let loginPage = `<form>
+let loginPage = `
+<form>
 <div class="form-group">
   <label for="email">Email</label>
   <input class="form-control" id="email" type="text" name="email" placeholder="Enter your email" required="" pattern="^\\w+([.-]?\\w+)*@\\w+([\.-]?\\w+)*(\\.\\w{2,4})+\$" />
