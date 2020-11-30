@@ -5,8 +5,8 @@ const Navbar = () => {
   let navbar;
   let user = getUserSessionData();    
   if (user) {
-    navbar = `<nav class="navbar navbar-expand-lg navbar-light bg-light mb-2" id="navBar">
-  <a class="navbar-brand" href="/" data-uri="/">MyCMS</a
+    navbar = `<nav class="navbar navbar-expand-lg bg-dark mb-2" id="navBar">
+  <a class="navbar-brand" href="/" data-uri="/">Dobble Game</a
   ><button
     class="navbar-toggler"
     type="button"
@@ -19,7 +19,7 @@ const Navbar = () => {
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
+    <div class="navbar-nav ml-auto">
       <a class="nav-item nav-link" href="#" data-uri="/">Home</a>    
       <a class="nav-item nav-link" href="#" data-uri="/users">List users</a>
       <a class="nav-item nav-link" href="#" data-uri="/films">List films</a>
@@ -31,8 +31,8 @@ const Navbar = () => {
   </nav>`;
   } else {
     navbar = `<nav class="navbar navbar-expand-lg bg-dark mb-2" id="navBar">
-  <a class="navbar-brand" href="/" data-uri="/">MyCMS</a
-  ><button
+    <a class="navbar-brand" href="/" data-uri="/">Dobble Game</a>
+  <button
     class="navbar-toggler"
     type="button"
     data-toggle="collapse"
@@ -44,8 +44,7 @@ const Navbar = () => {
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link" href="#" data-uri="/">Home</a>
+    <div class="navbar-nav ml-auto">
       <a class="nav-item nav-link" href="#" data-uri="/register">Register</a>
       <a class="nav-item nav-link" href="#" data-uri="/login">Login</a> 
     </div>

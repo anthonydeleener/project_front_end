@@ -11,8 +11,13 @@
     "bootstrap": "^4.5.2",
     "customizable-analog-clock": "^1.0.1",
     "jquery": "^3.5.1",
+<<<<<<< HEAD
     "phaser": "^3.24.1",
     "popper.js": "^1.16.1"
+=======
+    "popper.js": "^1.16.1",
+    "scrollmagic": "^2.0.8"
+>>>>>>> fd0d7efd20544caee7e8acbf7bb31e33448e8b4c
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
