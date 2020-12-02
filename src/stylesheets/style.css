@@ -3,6 +3,8 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+
+
 a {
   color: #00B7FF;
 }
@@ -14,4 +16,32 @@ input:invalid {
 
 input:valid {
   border: 2px solid green;
+}
+
+
+/* A MODIFIER ET AMELIORER*/
+.project{
+  background: red;
+  text-align: center;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  opacity: 0;
+  /*transform: translateY(50px);*/
+  transition: all 1s ease-out;
+}
+
+.project.visible {
+  opacity: 1;
+  
+}
+
+.corps{
+  opacity: 1;
+
+}
+.corps.visible{
+  opacity: 0;
+  transition: all 1s ease-out;
+
 }
