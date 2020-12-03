@@ -26,7 +26,7 @@ new ScrollMagic.Scene({
     triggerHook: 0.7, 
     //duration: "80%", // hide 10% before exiting view (80% + 10% from bottom)
     //offset: 50 // move trigger to center of element
-}).setClassToggle("#corps", "visible") // add class to reveal
+}).setClassToggle("#toMakeInvisible", "yes") // add class to reveal
 .addTo(controller);
 // A MODIFIER ET AMELIORER
 

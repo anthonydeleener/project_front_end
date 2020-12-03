@@ -20,7 +20,7 @@ input:valid {
 
 
 /* A MODIFIER ET AMELIORER*/
-.project{
+#rules{
   background: red;
   text-align: center;
   color: #fff;
@@ -31,16 +31,16 @@ input:valid {
   transition: all 1s ease-out;
 }
 
-.project.visible {
+#rules.visible {
   opacity: 1;
   
 }
 
-.corps{
+#toMakeInvisible{
   opacity: 1;
 
 }
-.corps.visible{
+#toMakeInvisible.yes{
   opacity: 0;
   transition: all 1s ease-out;
 
