@@ -20,7 +20,7 @@ const Navbar = () => {
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto">
-      <a class="nav-item nav-link" href="#" data-uri="/">Home</a>    
+      <a class="nav-item nav-link" href="#" data-uri="/game">Play</a>
       <a class="nav-item nav-link" href="#" data-uri="/users">List users</a>
       <a class="nav-item nav-link" href="#" data-uri="/films">List films</a>
       <a class="nav-item nav-link" href="#" data-uri="/films/add">Add film</a>
