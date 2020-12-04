@@ -9,7 +9,7 @@ import FilmListPage from "./Film/FilmListPage.js";
 import PhaserGamePage from "./Phaser/PhaserGamePage.js";
 
 const routes = {
-  "/": HomePage,
+  "/": LoginPage, // "/": HomePage,
   "/users": UserListPage,
   "/login": LoginPage,
   "/register": RegisterPage,

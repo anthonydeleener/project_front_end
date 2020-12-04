@@ -22,4 +22,4 @@ Router();
 
 
 
-setLayout(undefined, HEADER_TITLE, FOOTER_TEXT);
+//setLayout(undefined, HEADER_TITLE, FOOTER_TEXT);
