@@ -16,15 +16,9 @@ const PhaserGamePage = () => {
 
   let config = {
     type: Phaser.AUTO,
-    width: 800,
-    height: 600,
-    physics: {
-      default: "arcade",
-      arcade: {
-        gravity: { y: 300 },
-        debug: false,
-      },
-    },
+    width: 1280,
+    height: 620,
+  
     scene: [GameScene],
     //  parent DOM element into which the canvas created by the renderer will be injected.
     parent: "gameDiv",
