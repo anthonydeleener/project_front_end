@@ -1,23 +1,25 @@
 import Phaser from "phaser";
+//import CountDownController from './CountDownController'
 import ScoreLabel from "./ScoreLabel.js";
 let countClick = 0;
 let nameSymbolBefore;
 let symbols = [];
 var testSymbol;
+
+
 class GameScene extends Phaser.Scene {
 
   constructor() {
     super("game-scene");
 
     this.gameOver = false;
-
-
+    
   }
+
   preload() {
     for (let i = 1; i < 5; i++) {
       this.load.image(i, "../../assets/" + i + ".png");
     }
-
   }
 
   create() {
@@ -35,6 +37,11 @@ class GameScene extends Phaser.Scene {
 
     }
 
+  /** timer 
+  const timerLabel = this.add.text(width *0.5,50,'45', {fontSize:48})
+  .setOrigin(0.5)
+  this.CountDownController = new CountDownController(this,timerLabel)
+  */
 
   }
 
