@@ -3,7 +3,7 @@ import {getUserSessionData} from "../utils/session.js";
 // destructuring assignment
 const Navbar = () => {
   let navbar;
-  let user = getUserSessionData();    
+  let user = getUserSessionData();
   if (user) {
     navbar = `<nav class="navbar navbar-expand-lg bg-dark mb-2" id="navBar">
   <a class="navbar-brand" href="/" data-uri="/game">Dobble Game</a
@@ -20,10 +20,6 @@ const Navbar = () => {
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto">
-      <a class="nav-item nav-link" href="#" data-uri="/game">Play</a>
-      <a class="nav-item nav-link" href="#" data-uri="/users">List users</a>
-      <a class="nav-item nav-link" href="#" data-uri="/films">List films</a>
-      <a class="nav-item nav-link" href="#" data-uri="/films/add">Add film</a>
       <a class="nav-item nav-link" href="#" data-uri="/logout">Logout</a>
       <a class="nav-item nav-link disabled" href="#">${user.username}</a>
     </div>
@@ -56,3 +52,8 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+//<a class="nav-item nav-link" href="#" data-uri="/users">List users</a>
+//<a class="nav-item nav-link" href="#" data-uri="/films">List films</a>
+//<a class="nav-item nav-link" href="#" data-uri="/films/add">Add film</a>
+//<a class="nav-item nav-link" href="#" data-uri="/game">Play</a>
