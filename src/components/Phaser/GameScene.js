@@ -1,5 +1,4 @@
 import Phaser from "phaser";
-//import CountDownController from './CountDownController'
 import ScoreLabel from "./ScoreLabel.js";
 let countClick = 0;
 let nameSymbolBefore;
@@ -10,10 +9,13 @@ var testSymbol;
 class GameScene extends Phaser.Scene {
 
   constructor() {
-    super("game-scene");
-
-    this.gameOver = false;
     
+    super("game-scene");
+   
+    this.gameOver = false;
+    this.timedEvent = undefined;
+    this.text = undefined;
+
   }
 
   preload() {
@@ -37,13 +39,14 @@ class GameScene extends Phaser.Scene {
 
     }
 
-  /** timer 
-  const timerLabel = this.add.text(width *0.5,50,'45', {fontSize:48})
-  .setOrigin(0.5)
-  this.CountDownController = new CountDownController(this,timerLabel)
-  */
+    // /* timer display */
+     this.text = this.add.text(450, 32);
+     this.timedEvent = this.time.addEvent({ delay: 60000, callback: this.onEvent, callbackScope: this });
+    //  The same as above, but uses a method signature to declare it (shorter, and compatible with GSAP syntax)
+    //timedEvent = this.time.delayedCall(3000, onEvent, [], GameScene);
 
   }
+
 
   onObjectClicked(pointer, gameObject) {
     console.log(gameObject.texture.key);
@@ -58,24 +61,21 @@ class GameScene extends Phaser.Scene {
       }
       countClick = 0;
     }
-
   }
 
-
+   /* event when timer finishes */
+   onEvent ()
+   {
+  
+   }
 
   update() {
     if (this.gameOver) {
       return;
     }
-
-  
+    /* update timer */ 
+    this.text.setText('Timer ' + this.timedEvent.getElapsedSeconds().toString().substr(0,3));
   }
-
-  
-
-
-
-
 }
 
 export default GameScene;
