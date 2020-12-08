@@ -19,6 +19,8 @@ const Rules = () => {
     <article>Dans le mode solo, le but est de se débarasser de ses cartes le plus rapidement possible. Votre temps sera
     chronometré, et vous pourrez ensuite vous comparer avec les meilleurs joueurs du site !</article>
     </div>
+
+    <div style="height: 50px"></div>
     `;
 
 
