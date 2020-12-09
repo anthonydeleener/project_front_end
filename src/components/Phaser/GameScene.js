@@ -30,12 +30,15 @@ class GameScene extends Phaser.Scene {
     //Creation cartes joueur + cartes pile
     let playerCardNumber = Math.floor(Math.random() * 56);
     for (let i = 0; i < 8; i++) {
-      cards.getPlayerCard().push(new Symbol(this.add.sprite(100 + (i * 100), 450, this.cardList[playerCardNumber][i]).setInteractive().setScale(0.12), playerCardNumber));
+      let random = Math.random()*0.05 + 0.08;
+      
+      cards.getPlayerCard().push(new Symbol(this.add.sprite(100 + (i * 100), 450, this.cardList[playerCardNumber][i]).setInteractive().setScale(random), playerCardNumber));
 
       if (this.indexDeck == cards.getPlayerCard()[0].getCardNumber()) {
         this.indexDeck++;
       }
-      cards.getDeckCard().push(new Symbol(this.add.sprite(100 + (i * 100), 150, this.cardList[this.indexDeck][i]).setInteractive().setScale(0.12), this.indexDeck));
+      random = Math.random()*0.05 + 0.08;
+      cards.getDeckCard().push(new Symbol(this.add.sprite(100 + (i * 100), 150, this.cardList[this.indexDeck][i]).setInteractive().setScale(random), this.indexDeck));
 
     }
     this.indexDeck++;
@@ -49,13 +52,12 @@ class GameScene extends Phaser.Scene {
     this.timedEvent = this.time.addEvent({ delay: 60000, callback: this.onEvent, callbackScope: this });
     //  The same as above, but uses a method signature to declare it (shorter, and compatible with GSAP syntax)
     //timedEvent = this.time.delayedCall(3000, onEvent, [], GameScene);
-
   }
 
 
   onObjectClicked(pointer, gameObject) {
     clickCounter++;
-    console.log(clickCounter);
+    
     if (clickCounter == 1) {
       this.firstNameSymbol = gameObject.texture.key;
       this.coordinatesFirstSymbol = gameObject.x + gameObject.y;
