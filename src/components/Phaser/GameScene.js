@@ -16,6 +16,7 @@ class GameScene extends Phaser.Scene {
     this.indexDeck = 0;
     this.firstNameSymbol = undefined;
     this.coordinatesFirstSymbol = undefined;
+    this.textDeck = undefined;
   }
 
   preload() {
@@ -33,7 +34,7 @@ class GameScene extends Phaser.Scene {
       let random = Math.random()*0.05 + 0.08;
       
       cards.getPlayerCard().push(new Symbol(this.add.sprite(100 + (i * 100), 450, this.cardList[playerCardNumber][i]).setInteractive().setScale(random), playerCardNumber));
-
+      this.textDeck = this.add.text(300, 10, (this.cardList.length-this.indexDeck-1), { color: 'white', fontSize: '20px '});
       if (this.indexDeck == cards.getPlayerCard()[0].getCardNumber()) {
         this.indexDeck++;
       }
@@ -46,7 +47,7 @@ class GameScene extends Phaser.Scene {
 
     // Si click
     this.input.on('gameobjectdown', this.onObjectClicked);
-
+    console.log(this.cardList);
     // /* timer display */
     this.text = this.add.text(450, 32);
     this.timedEvent = this.time.addEvent({ delay: 60000, callback: this.onEvent, callbackScope: this });
@@ -83,13 +84,23 @@ class GameScene extends Phaser.Scene {
         for (let i = 0; i < 8; i++) {
           cards.getDeckCard().pop();
         }
+
+
+        
         //Ajouter carte deck (indexDeck)
         if (this.indexDeck == cards.getPlayerCard()[0].getCardNumber()) {
           this.indexDeck++;
         }
+        // PARTIE TERMINEE
+        //if(this.indexDeck == this.cardList.length){
+          // FIN DE PARTIE
+        //}
         /*for (let i = 0; i < 8; i++) {
           cards.getDeckCard().push(new Symbol(this.add.sprite(100 + (i * 100), 150, this.cardList[this.indexDeck][i]).setInteractive().setScale(0.12), this.indexDeck));
         }*/
+        //console.log(this.cardList.length-this.indexDeck-1);
+        //this.textDeck.setText(this.cardList.length-this.indexDeck-1);
+        console.log(this.cardList);  
         this.indexDeck ++;
        
       } else {
