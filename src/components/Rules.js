@@ -4,8 +4,8 @@ var controller = new ScrollMagic.Controller();
 
 const Rules = () => {
     let rules1;
-    rules1=
-    `<div style="height: 50px;"></div> <h1 class="rules" style="text-align: center">Règles</h1><div style="height: 50px;"></div>
+    rules1 =
+        `<div style="height: 50px;"></div> <h1 class="rules" style="text-align: center">Règles</h1><div style="height: 50px;"></div>
 
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
     <h2>Les bases</h2>
@@ -24,7 +24,7 @@ const Rules = () => {
     `;
 
 
-    
+
 
 
     return (rules.innerHTML = rules1);
@@ -32,17 +32,17 @@ const Rules = () => {
 
 new ScrollMagic.Scene({
     triggerElement: '#rules',
-    triggerHook: 1.0, 
+    triggerHook: 1.0,
     //duration: "80%", // hide 10% before exiting view (80% + 10% from bottom)
     //offset: 50 // move trigger to center of element
 }).setClassToggle("#rules", "visible") // add class to reveal
-.addTo(controller);
+    .addTo(controller);
 
 //new ScrollMagic.Scene({
 //    triggerElement: '#rules',
 //    triggerHook: 1.0, 
-    //duration: "80%", // hide 10% before exiting view (80% + 10% from bottom)
-    //offset: 50 // move trigger to center of element
+//duration: "80%", // hide 10% before exiting view (80% + 10% from bottom)
+//offset: 50 // move trigger to center of element
 //}).setClassToggle("#toMakeInvisible", "yes") // add class to reveal
 //.addTo(controller);
 // A MODIFIER ET AMELIORER
