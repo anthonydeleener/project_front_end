@@ -18,10 +18,12 @@ const PhaserGamePage = () => {
     type: Phaser.AUTO,
     width: 1280,
     height: 620,
-  
+    
     scene: [GameScene],
     //  parent DOM element into which the canvas created by the renderer will be injected.
     parent: "gameDiv",
+    "transparent"    : true
+
   };
 
   // there could be issues when a game was quit (events no longer working)
