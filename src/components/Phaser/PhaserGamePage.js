@@ -16,7 +16,7 @@ const PhaserGamePage = () => {
 
   let config = {
     type: Phaser.AUTO,
-    width: 900,
+    width: 1100,
     height: 620,
     
     scene: [GameScene],
