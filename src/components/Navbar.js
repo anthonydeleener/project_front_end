@@ -20,7 +20,7 @@ const Navbar = () => {
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto">
-      <a class="nav-item nav-link" href="#" data-uri="/logout">Logout</a>
+      <a class="nav-item nav-link" href="#" data-uri="/logout">Se deconnecter</a>
       <a class="nav-item nav-link disabled" href="#">${user.username}</a>
     </div>
   </div>
@@ -41,8 +41,8 @@ const Navbar = () => {
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto">
-      <a class="nav-item nav-link" href="#" data-uri="/register">Register</a>
-      <a class="nav-item nav-link" href="#" data-uri="/login">Login</a> 
+      <a class="nav-item nav-link" href="#" data-uri="/register">S'inscrire</a>
+      <a class="nav-item nav-link" href="#" data-uri="/login">Se connecter</a> 
     </div>
   </div>
   </nav>`;
