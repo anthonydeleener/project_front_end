@@ -99,7 +99,7 @@ class GameScene extends Phaser.Scene {
         console.log(this.indexDeck);
         // PARTIE TERMINEE
         if (this.indexDeck == this.cardList.length) {
-          this.gameOverText = this.add.text(470, 310, "GameOver", { color: 'white', fontSize: '60px ' });
+          this.gameOverText = this.add.text(470, 310, "GameOver", { color: 'black', fontSize: '60px ' });
           this.gameOverText.setOrigin(0.5);
           for(let i=0;i<8;i++){
             cards.getPlayerCard().pop().getSprite().destroy();
