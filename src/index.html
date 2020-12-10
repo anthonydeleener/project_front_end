@@ -32,9 +32,9 @@
     h-100 for a full height element  
     d-flex to create a flexbox container and transform direct children elements into flex items 
     flex-column to set a vertical direction-->
-    <div class="container-fluid h-100 d-flex flex-column bg-dark">
+    <div class="container-fluid h-100 d-flex flex-column" style="background-color: rgb(255, 255, 255);">
       <!-- Header row : dark background, white text -->
-      <div class="row bg-dark py-2 header">
+      <div class="row py-2 header">
         <div class="col">
           <header class="text-center text-white font-weight-bold">
             <div id="navBar"></div>
@@ -47,17 +47,17 @@
         mb-5 : to ensure that we see all of the content of the page row -->
       <div id = "toMakeInvisible">
       <div class="row flex-grow-1 mb-5">
-        <div class="d-none d-md-block col-md bg-dark left"></div>
-        <div class="col mt-2 bg-dark text-white text-center">
+        <div class="d-none d-md-block col-md left"></div>
+        <div class="col mt-2 text-white text-center">
           <h4 id="pageTitle"></h4>
           <div id="page"></div>
         </div>
-        <div class="d-none d-md-block col-md bg-dark right"></div>
+        <div class="d-none d-md-block col-md right"></div>
       </div>
       </div>
 
       <!-- Footer row -->
-      <div class="row bg-dark fixed-bottom footer">
+      <div class="row fixed-bottom footer">
         <div class="col">
           <footer class="py-2 text-center text-white font-weight-bold">
             <h5 id="footerText"></h5>
