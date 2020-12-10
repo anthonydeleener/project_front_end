@@ -2,7 +2,6 @@ import Phaser from "phaser";
 //import ScoreLabel from "./ScoreLabel.js"
 import Symbol from "./Symbol.js";
 import Cards from "./Cards.js";
-import PhaserGamePage from "./PhaserGamePage.js";
 
 let cards;
 let clickCounter = 0;
@@ -17,7 +16,8 @@ class GameScene extends Phaser.Scene {
     this.cardList = undefined;
     this.indexDeck = 0;
     this.firstKeySymbol = undefined;
-    this.coordinatesFirstSymbol = undefined;
+    this.coordinatesX = undefined;
+    this.coordinatesY = undefined;
     this.playerFirstCardNumber = 0;
     this.textDeck = undefined;
     this.onObjectClicked = this.onObjectClicked.bind(this);
@@ -59,6 +59,8 @@ class GameScene extends Phaser.Scene {
     this.timedEvent = this.time.addEvent({ delay: 60000, callback: this.onEvent, callbackScope: this });
     //  The same as above, but uses a method signature to declare it (shorter, and compatible with GSAP syntax)
     //timedEvent = this.time.delayedCall(3000, onEvent, [], GameScene);
+
+
   }
 
 
@@ -68,13 +70,14 @@ class GameScene extends Phaser.Scene {
     if (clickCounter == 1) {
      
       this.firstKeySymbol = gameObject.texture.key;
-      this.coordinatesFirstSymbol = gameObject.x + gameObject.y;
+      this.coordinatesX = gameObject.x;
+      this.coordinatesY = gameObject.y;
     } else {
-      /*console.log("firtKeySymbol : " + this.firstKeySymbol);
+      console.log("firtKeySymbol : " + this.firstKeySymbol);
       console.log("second key symbol " + gameObject.texture.key);
-      console.log("coordinatesFirstSymbol " + this.coordinatesFirstSymbol);
-      console.log("coordinates second symbol " + gameObject.x + gameObject.y);*/
-      if (this.firstKeySymbol == gameObject.texture.key && this.coordinatesFirstSymbol != (gameObject.x + gameObject.y)) {
+      console.log("coordinatesFirstSymbol " + (this.coordinatesX+this.coordinatesY));
+      console.log("coordinates second symbol " + (gameObject.x + gameObject.y));
+      if (this.firstKeySymbol == gameObject.texture.key && (this.coordinatesX != gameObject.x || this.coordinatesY != gameObject.y)) {
         console.log("CLICK 2 FOIS MEME SYMBOLE");
         //Supprimer card player et rajouter les nouvelles
         for (let i = 0; i < 8; i++) {
@@ -135,13 +138,13 @@ class GameScene extends Phaser.Scene {
     if (this.gameOver) {
       console.log("gameover");
       
-      
       return;
     }
     /* update timer */
     this.text.setText('Timer ' + this.timedEvent.getElapsedSeconds().toString().substr(0, 3));
     
     }
+
 
 
 
