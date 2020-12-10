@@ -18,7 +18,10 @@ const PhaserGamePage = () => {
     type: Phaser.AUTO,
     width: 1280,
     height: 620,
-  
+    scale: {
+      parent: 'page',
+      autoCenter: Phaser.Scale.CENTER_BOTH
+    },
     scene: [GameScene],
     //  parent DOM element into which the canvas created by the renderer will be injected.
     parent: "gameDiv",
