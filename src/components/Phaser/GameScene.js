@@ -15,7 +15,7 @@ class GameScene extends Phaser.Scene {
     this.text = undefined;
     this.cardList = undefined;
     this.indexDeck = 0;
-    this.firstNameSymbol = undefined;
+    this.firstKeySymbol = undefined;
     this.coordinatesFirstSymbol = undefined;
     //this.textDeck = undefined;
     this.onObjectClicked = this.onObjectClicked.bind(this);
@@ -32,11 +32,10 @@ class GameScene extends Phaser.Scene {
   create() {
     //Creation cartes joueur + cartes pile
     let playerCardNumber = Math.floor(Math.random() * 56);
+    textDeck = this.add.text(300, 10, (this.cardList.length - this.indexDeck - 1), { color: 'white', fontSize: '20px ' });
     for (let i = 0; i < 8; i++) {
       let random = Math.random() * 0.05 + 0.08;
-
       cards.getPlayerCard().push(new Symbol(this.add.sprite(100 + (i * 100), 450, this.cardList[playerCardNumber][i]).setInteractive().setScale(random), playerCardNumber));
-      textDeck = this.add.text(300, 10, (this.cardList.length - this.indexDeck - 1), { color: 'white', fontSize: '20px ' });
       if (this.indexDeck == cards.getPlayerCard()[0].getCardNumber()) {
         this.indexDeck++;
       }
@@ -62,10 +61,14 @@ class GameScene extends Phaser.Scene {
     clickCounter++;
 
     if (clickCounter == 1) {
-      this.firstNameSymbol = gameObject.texture.key;
+      this.firstKeySymbol = gameObject.texture.key;
       this.coordinatesFirstSymbol = gameObject.x + gameObject.y;
     } else {
-      if (this.firstNameSymbol == gameObject.texture.key && this.coordinatesFirstSymbol != gameObject.x + gameObject.y) {
+      console.log("firtKeySymbol : " + this.firstKeySymbol );
+      console.log("second key symbol "+ gameObject.texture.key);
+      console.log("coordinatesFirstSymbol "+ this.coordinatesFirstSymbol);
+      console.log("coordinates second symbol "+gameObject.x+gameObject.y);
+      if (this.firstKeySymbol == gameObject.texture.key && this.coordinatesFirstSymbol != (gameObject.x + gameObject.y)) {
         console.log("CLICK 2 FOIS MEME SYMBOLE");
         //Supprimer card player et rajouter les nouvelles
         for (let i = 0; i < 8; i++) {
@@ -120,7 +123,7 @@ class GameScene extends Phaser.Scene {
     }
     /* update timer */
     this.text.setText('Timer ' + this.timedEvent.getElapsedSeconds().toString().substr(0, 3));
-    textDeck.setText(this.cardList.length - this.indexDeck - 1);
+    textDeck.setText(this.cardList.length - this.indexDeck);
   }
 
 
