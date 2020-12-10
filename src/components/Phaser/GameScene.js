@@ -36,25 +36,27 @@ class GameScene extends Phaser.Scene {
   create() {
     //Creation cartes joueur + cartes pile
     this.playerFirstCardNumber = Math.floor(Math.random() * 56);
+    this.textDeck = this.add.text(300, 10, this.remainingCards +" cartes restantes", { color: 'black', fontSize: '30px ' });
     
-    this.textDeck = this.add.text(300, 10, this.remainingCards +" cartes restantes", { color: 'white', fontSize: '30px ' });
     for (let i = 0; i < 8; i++) {
-      let random = Math.random() * 0.05 + 0.08;
-      cards.getPlayerCard().push(new Symbol(this.add.sprite(100 + (i * 100), 450, this.cardList[this.playerFirstCardNumber][i]).setInteractive().setScale(random), this.playerFirstCardNumber));
+      let randomScale = Math.random() * 0.05 + 0.08;
+      let randomY = Math.floor(Math.random() * (550 - 350 + 1)) + 350;
+      
+      cards.getPlayerCard().push(new Symbol(this.add.sprite(110 + (i*180), randomY, this.cardList[this.playerFirstCardNumber][i]).setInteractive().setScale(randomScale), this.playerFirstCardNumber));
       if (this.indexDeck == cards.getPlayerCard()[0].getCardNumber()) {
         this.indexDeck++;
       }
-      random = Math.random() * 0.05 + 0.08;
-      cards.getDeckCard().push(new Symbol(this.add.sprite(100 + (i * 100), 150, this.cardList[this.indexDeck][i]).setInteractive().setScale(random), this.indexDeck));
-
+      randomScale = Math.random() * 0.05 + 0.08;
+      randomY = Math.floor(Math.random() * (250 - 50 + 1)) + 50;
+      cards.getDeckCard().push(new Symbol(this.add.sprite(110 + (i * 180), randomY, this.cardList[this.indexDeck][i]).setInteractive().setScale(randomScale), this.indexDeck));
     }
     this.indexDeck++;
 
 
     // Si click
     this.input.on('gameobjectdown', this.onObjectClicked);
-    console.log(this.cardList);
-    // /* timer display */
+
+    // timer display
     this.text = this.add.text(450, 32);
     this.timedEvent = this.time.addEvent({ delay: 60000, callback: this.onEvent, callbackScope: this });
     //  The same as above, but uses a method signature to declare it (shorter, and compatible with GSAP syntax)
@@ -73,10 +75,6 @@ class GameScene extends Phaser.Scene {
       this.coordinatesX = gameObject.x;
       this.coordinatesY = gameObject.y;
     } else {
-      console.log("firtKeySymbol : " + this.firstKeySymbol);
-      console.log("second key symbol " + gameObject.texture.key);
-      console.log("coordinatesFirstSymbol " + (this.coordinatesX+this.coordinatesY));
-      console.log("coordinates second symbol " + (gameObject.x + gameObject.y));
       if (this.firstKeySymbol == gameObject.texture.key && (this.coordinatesX != gameObject.x || this.coordinatesY != gameObject.y)) {
         console.log("CLICK 2 FOIS MEME SYMBOLE");
         //Supprimer card player et rajouter les nouvelles
@@ -112,7 +110,8 @@ class GameScene extends Phaser.Scene {
         } else {
 
           for (let i = 0; i < 8; i++) {
-            cards.getDeckCard().push(new Symbol(this.add.sprite(100 + (i * 100), 150, this.cardList[this.indexDeck][i]).setInteractive().setScale(0.12), this.indexDeck));
+            let randomY = Math.floor(Math.random() * (250 - 50 + 1)) + 50;
+            cards.getDeckCard().push(new Symbol(this.add.sprite(110 + (i * 180), randomY, this.cardList[this.indexDeck][i]).setInteractive().setScale(0.12), this.indexDeck));
           }
           this.remainingCards --;
           this.textDeck.setText(this.remainingCards +" cartes restantes");
