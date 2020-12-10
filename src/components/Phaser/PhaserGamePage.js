@@ -18,18 +18,21 @@ const PhaserGamePage = () => {
     let page = document.querySelector("#page");
     page.innerHTML = phaserGame;
 
-    let config = {
-      type: Phaser.AUTO,
-      width: 1280,
-      height: 620,
-      scale: {
-        parent: 'page',
-        autoCenter: Phaser.Scale.CENTER_BOTH
-      },
-      scene: [GameScene],
-      //  parent DOM element into which the canvas created by the renderer will be injected.
-      parent: "gameDiv",
-    };
+  let config = {
+    type: Phaser.AUTO,
+    width: 1100,
+    height: 620,
+    
+    scale: {
+      parent: 'page',
+      autoCenter: Phaser.Scale.CENTER_BOTH
+    },
+    scene: [GameScene],
+    //  parent DOM element into which the canvas created by the renderer will be injected.
+    parent: "gameDiv",
+    "transparent"    : true
+
+  };
 
     // there could be issues when a game was quit (events no longer working)
     // therefore destroy any started game prior to recreate it
