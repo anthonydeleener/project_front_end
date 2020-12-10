@@ -17,27 +17,29 @@ class Cards {
     [3, 10, 17, 24, 31, 38, 45, 51], [4, 11, 18, 25, 32, 39, 46, 51], [5, 12, 19, 26, 33, 40, 47, 51], [6, 13, 20, 27, 34, 41, 48, 51], [7, 14, 21, 28, 35, 42, 49, 51],
     [50, 51, 52, 53, 54, 55, 56, 57]];
     this.cards = this.shuffleArray(this.cards);
-    
+    for (let i = 0; i < this.cards.length; i++) {
+      this.cards[i] = this.shuffleArray(this.cards[i]);
+    }
     this.playerCard = [];
     this.deckCard = [];
-    
+
   }
 
-  
+
 
   getCards() {
     return this.cards;
   }
 
-  getNumberOfCards(){
+  getNumberOfCards() {
     return this.cards.length;
   }
 
-  getPlayerCard(){
+  getPlayerCard() {
     return this.playerCard;
   }
 
-  getDeckCard(){
+  getDeckCard() {
     return this.deckCard;
   }
 

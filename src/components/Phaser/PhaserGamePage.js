@@ -20,8 +20,8 @@ const PhaserGamePage = () => {
 
   let config = {
     type: Phaser.AUTO,
-    width: 1100,
-    height: 620,
+    width: 1500,
+    height: 600,
     
     scale: {
       parent: 'page',
