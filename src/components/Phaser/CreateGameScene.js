@@ -1,7 +1,10 @@
 import Phaser from "phaser";
-import TypeGame from "./TypeGame.js";
 
 let typeGame;
+let nbeCartes = 0;
+let textList = ['Peu de cartes (10)', 'Beaucoup de cartes (25)', 'Toutes les cartes (57)'];
+var nbeCartesButton;
+
 var nbeVariantes = 2;
 let spriteList = [];
 
@@ -21,24 +24,6 @@ class CreateGameScene extends Phaser.Scene {
   }
 
   create() {
-    /*this.input.on('pointerdown', function (pointer) {
-        this.scene.start('game-scene');
-    }, this);*/
-
-
-
-    console.log("createGameScene");
-    var text = this.add.text(
-      640,
-      360,
-      "CREATE GAME SCENE",
-      {
-        fontSize: 50,
-        color: "black",
-        fontStyle: "bold"
-      }
-    ).setOrigin(0.5);
-
 
     // Boutons choix de la variante de jeu
     for (let i = 1; i <= nbeVariantes; i++) {
@@ -47,8 +32,27 @@ class CreateGameScene extends Phaser.Scene {
     }
 
 
-    // Bouton créer paertie
-    this.add.sprite(this.cameras.main.centerX, this.cameras.main.centerY + 250, 'createButton').setOrigin(0.5).setScale(0.4).setInteractive();
+    // Boutons choix nombre de carte
+    var text = this.add.text(this.cameras.main.centerX-200, 320, "Nombre de cartes :",
+      {
+        fontSize: 30,
+        color: "black",
+        fontStyle: "bold"
+      }
+    ).setOrigin(0.5);
+
+    nbeCartesButton = this.add.text(this.cameras.main.centerX+200, 320, textList[nbeCartes],
+    { 
+      fontSize: 25,
+      fill: "blue",
+      fontStyle: "bold"
+    }
+    ).setOrigin(0.5).setInteractive();
+
+
+
+    // Bouton créer partie
+    this.add.sprite(this.cameras.main.centerX, this.cameras.main.centerY + 200, 'createButton').setOrigin(0.5).setScale(0.4).setInteractive();
 
 
 
@@ -58,19 +62,33 @@ class CreateGameScene extends Phaser.Scene {
   }
 
   onObjectClicked(pointer, gameObject) {
-    //console.log(gameObject.texture.key);
-    if (gameObject.texture.key.startsWith('type')) {
+    //console.log(gameObject);
+    //console.log(gameObject.type);
+
+    // Si click bouton choix nombre de carte
+    if (gameObject.type == 'Sprite' && gameObject.texture.key.startsWith('type')) {
       typeGame = gameObject.texture.key;
 
       for (let i = 1; i <= nbeVariantes; i++) {
         spriteList[i].tint = 0x363636;
       }
       gameObject.tint = 0xffffff;;
-
       //console.log(typeGame);
     }
 
-    if (gameObject.texture.key.startsWith('createButton')) {
+
+    // Si click bouton choix nombre de carte
+    if (gameObject.type == 'Text') {
+      nbeCartes = (nbeCartes+1)%3;
+      nbeCartesButton.setText(textList[nbeCartes]);
+      console.log(nbeCartes);
+    }
+
+
+
+    // Si click bouton créer partie
+    if (gameObject.type == 'Sprite' && gameObject.texture.key.startsWith('createButton')) {
+      // TODO
       console.log('lancement de la partie!');
     }
 
