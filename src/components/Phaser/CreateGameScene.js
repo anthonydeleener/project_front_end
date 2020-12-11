@@ -2,7 +2,7 @@ import Phaser from "phaser";
 import TypeGame from "./TypeGame.js";
 
 let typeGame;
-var nbeVariantes = 4;
+var nbeVariantes = 2;
 let spriteList = [];
 
 class CreateGameScene extends Phaser.Scene {
@@ -15,6 +15,8 @@ class CreateGameScene extends Phaser.Scene {
     for (let i = 1; i <= nbeVariantes; i++) {
       this.load.image('type' + i, "../../assets/" + i + ".png");
     }
+
+    this.load.image('createButton', "../../assets/50.png");
 
   }
 
@@ -38,10 +40,15 @@ class CreateGameScene extends Phaser.Scene {
     ).setOrigin(0.5);
 
 
+    // Boutons choix de la variante de jeu
     for (let i = 1; i <= nbeVariantes; i++) {
       spriteList[i] = this.add.sprite(this.cameras.main.centerX - (150 * nbeVariantes) + (300 / 2) * (1 + (i - 1) * 2), this.cameras.main.centerY - 200, 'type' + i);
       spriteList[i].setOrigin(0.5).setScale(0.4).setInteractive();
     }
+
+
+    // Bouton créer paertie
+    this.add.sprite(this.cameras.main.centerX, this.cameras.main.centerY + 250, 'createButton').setOrigin(0.5).setScale(0.4).setInteractive();
 
 
 
@@ -51,14 +58,23 @@ class CreateGameScene extends Phaser.Scene {
   }
 
   onObjectClicked(pointer, gameObject) {
-    typeGame = gameObject.texture.key;
+    //console.log(gameObject.texture.key);
+    if (gameObject.texture.key.startsWith('type')) {
+      typeGame = gameObject.texture.key;
 
-    for (let i = 1; i <= nbeVariantes; i++) {
-      spriteList[i].tint = 0x363636;
+      for (let i = 1; i <= nbeVariantes; i++) {
+        spriteList[i].tint = 0x363636;
+      }
+      gameObject.tint = 0xffffff;;
+
+      //console.log(typeGame);
     }
-    gameObject.tint = 0xffffff;;
 
-    //console.log(typeGame);
+    if (gameObject.texture.key.startsWith('createButton')) {
+      console.log('lancement de la partie!');
+    }
+
+
   }
 
 
