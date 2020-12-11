@@ -8,7 +8,7 @@ const ScrollArrow = () => {
     return (scrollArrow.innerHTML = scrollArrow1);
 }
 
-new ScrollMagic.Scene({
+/*new ScrollMagic.Scene({
     triggerElement: '#rules',
     triggerHook: 0.3,
     //duration: "80%", // hide 10% before exiting view (80% + 10% from bottom)
@@ -20,6 +20,6 @@ new ScrollMagic.Scene({
     triggerElement: '#rules',
     triggerHook: 0.3, 
 }).setClassToggle("#toMakeInvisible", "yes")
-.addTo(controller);
+.addTo(controller); */
 
 export default ScrollArrow;
