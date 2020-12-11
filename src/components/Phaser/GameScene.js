@@ -8,7 +8,7 @@ let clickCounter = 0;
 
 class GameScene extends Phaser.Scene {
 
-  constructor() {
+  constructor(testString) {
     super("game-scene");
     this.gameOver = false;
     this.timedEvent = undefined;
@@ -22,6 +22,7 @@ class GameScene extends Phaser.Scene {
     this.textDeck = undefined;
     this.onObjectClicked = this.onObjectClicked.bind(this);
     this.remainingCards = undefined;
+    
   }
 
   preload() {
