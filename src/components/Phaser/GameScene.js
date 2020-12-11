@@ -33,7 +33,6 @@ class GameScene extends Phaser.Scene {
   }
 
   create() {
-<<<<<<< HEAD
 
 
 
@@ -44,20 +43,6 @@ class GameScene extends Phaser.Scene {
     
 
 
-=======
-    this.indexDeck = 0;
-    cards = new Cards();
-    this.cardList = cards.getCards();
-    console.log("cardlist" + this.cardList);
-    console.log("indexDeck" + this.indexDeck);
-    this.remainingCards = this.cardList.length - 1;
-    this.add.line(this.cameras.main.centerX, this.cameras.main.centerY, 0, 0, 1500, 0, 0x6666ff);
-
-    //Creation cartes joueur + cartes pile
-    this.playerFirstCardNumber = Math.floor(Math.random() * 56);
-    this.playerFirstCardNumber = 0;
-    this.textDeck = this.add.text(25, 10, this.remainingCards + " cartes restantes", { fontFamily: 'Comic Sans MS', fontSize: '30px', color: 'black' });
->>>>>>> 0605b915393e7e94a23aac0cfb0f2f73b512fe70
 
     for (let i = 0; i < 8; i++) {
       let randomScale = Math.random() * 0.05 + 0.08;
@@ -154,17 +139,8 @@ class GameScene extends Phaser.Scene {
       this.scene.start('GameOverScene', { "timer": "le timer " });
     }
     /* update timer */
-<<<<<<< HEAD
     this.textTimer.setText("Timer " + this.timedEvent.getElapsedSeconds().toString().substr(0,4)+ " seconds");  
     }
-=======
-    this.text.setText('Timer ' + this.timedEvent.getElapsedSeconds().toString().substr(0, 3));
-
-  }
->>>>>>> 0605b915393e7e94a23aac0cfb0f2f73b512fe70
-
-
-
 
 }
 
