@@ -3,6 +3,8 @@ import Phaser from "phaser";
 import TypeGame from "./TypeGame.js";
 
 let typeGame = -1;
+var sprite;
+
 class CreateScene extends Phaser.Scene {
 
   constructor() {
@@ -11,7 +13,7 @@ class CreateScene extends Phaser.Scene {
 
   preload() {
     for (let i = 1; i <= 2; i++) {
-      this.load.image(i, "../../assets/" + i + ".png");
+      this.load.image('type' + i, "../../assets/" + i + ".png");
     }
   }
 
@@ -21,22 +23,23 @@ class CreateScene extends Phaser.Scene {
       new TypeGame(i);
     }*/
 
-    sprite = game.add.sprite(game.world.centerX, game.world.centerY, 'atlas', 'greenJellyfish0000');
+    sprite = this.add.sprite(game.world.centerX, game.world.centerY, 'type1');
     sprite.anchor.set(0.5);
 
     sprite.tint = Math.random() * 0xffffff;
 
-    game.input.onDown.add(changeTint, this);
+    this.input.onDown.add(changeTint, this);
 
 
 
     // Si click
-    //this.input.on('gameobjectdown', this.setTypeGame);
+    this.input.on('pointerdown', this.setTypeGame);
     //console.log(this.cardList);
   }
 
   setTypeGame(pointer, TypeGame) {
-    typeGame = TypeGame.getVariantNumber
+    typeGame = TypeGame.getVariantNumber;
+
   }
 
   changeTint() {
