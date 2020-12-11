@@ -21,7 +21,7 @@ class CreateGameScene extends Phaser.Scene {
       this.load.image('type' + i, "../../assets/variantGameImage/variant" + i + ".png");
     }
 
-    this.load.image('createButton', "../../assets/createImage/createPartyButton.png");
+    this.load.image('createButton', "../../assets/buttonsImage/createPartyButton.png");
 
   }
 
