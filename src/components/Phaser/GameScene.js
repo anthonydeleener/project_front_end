@@ -8,7 +8,7 @@ let clickCounter = 0;
 
 class GameScene extends Phaser.Scene {
 
-  constructor(testString) {
+  constructor() {
     super("game-scene");
     this.gameOver = false;
     this.timedEvent = undefined;
@@ -149,5 +149,6 @@ class GameScene extends Phaser.Scene {
 
 
 }
+
 
 export default GameScene;

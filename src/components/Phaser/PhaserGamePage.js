@@ -1,6 +1,8 @@
 //let Phaser = require("phaser");
 import Phaser from "phaser";
 import GameScene from "./GameScene.js";
+import CreateGameScene from "./CreateGameScene";
+import GameOverScene from "./GameOverScene";
 import { setLayout } from "../../utils/render.js";
 import {getUserSessionData} from "../../utils/session.js";
 import LoginPage from "../LoginPage.js";
@@ -27,7 +29,7 @@ const PhaserGamePage = () => {
       parent: 'page',
       autoCenter: Phaser.Scale.CENTER_BOTH
     },
-    scene: [GameScene],
+    scene: [ CreateGameScene, GameScene, GameOverScene],
     //  parent DOM element into which the canvas created by the renderer will be injected.
     parent: "gameDiv",
     "transparent"    : true
