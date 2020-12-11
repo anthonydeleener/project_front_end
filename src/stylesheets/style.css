@@ -21,27 +21,32 @@ input:valid {
 
 /* A MODIFIER ET AMELIORER*/
 #rules{
-  background: red;
-/*  text-align: center; */
-  color: #fff;
+  color: rgb(0, 0, 0);
   font-size: 20px;
-/*  font-weight: bold; */
+ 
   opacity: 0;
-  /*transform: translateY(50px);*/
- transition: all 1s ease-out; 
+  
+  transition: all 2s ease-out; 
 }
 
 #rules.visible {
   opacity: 1;
-  transition: all 1s ease-out; 
+  
+  transition: all 2s ease-out; 
 }
 
 #toMakeInvisible{
   opacity: 1;
-  transition: all 0.6s ease-out; 
+  
+  transition: all 2s ease-out; 
 }
 #toMakeInvisible.yes{
-  opacity: 0;
-transition: all 0.6s ease-out; 
+  opacity: 0  ;
+  transform: translateY(-200px);
+  transition: all 2s ease-out; 
 
+}
+
+#page{
+  color: black;
 }

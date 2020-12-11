@@ -3,7 +3,7 @@ import { setTheme, getTheme } from "../utils/session.js";
 
 const ThemeDropDown = () => {
   const dropDown = `
-    <div id="themes" value = "dark">
+    <div id="themes" value = "white">
     `;
 
   const theme = getTheme();

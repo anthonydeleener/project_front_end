@@ -8,6 +8,7 @@ import AddFilm from "./Film/AddFilm.js";
 import FilmListPage from "./Film/FilmListPage.js";
 import PhaserGamePage from "./Phaser/PhaserGamePage.js";
 
+
 const routes = {
   "/": LoginPage, // "/": HomePage,
   "/users": UserListPage,
@@ -17,7 +18,8 @@ const routes = {
   "/error": ErrorPage,
   "/films": FilmListPage,
   "/films/add": AddFilm,
-  "/game": PhaserGamePage
+  "/game": PhaserGamePage,
+
 
 };
 
