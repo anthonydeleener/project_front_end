@@ -16,10 +16,10 @@ class CreateGameScene extends Phaser.Scene {
 
   preload() {
     for (let i = 1; i <= nbeVariantes; i++) {
-      this.load.image('type' + i, "../../assets/" + i + ".png");
+      this.load.image('type' + i, "../../assets/variantGameImage/variant" + i + ".png");
     }
 
-    this.load.image('createButton', "../../assets/50.png");
+    this.load.image('createButton', "../../assets/createImage/createPartyButton.png");
 
   }
 
