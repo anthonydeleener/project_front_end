@@ -41,7 +41,18 @@ class GameScene extends Phaser.Scene {
   this.playerFirstCardNumber = Math.floor(Math.random() * 56);
   this.textDeck = this.add.text(300, 10, this.remainingCards +" cartes restantes", { color: 'black', fontSize: '30px ' });
     
+  this.indexDeck = 0;
+  cards = new Cards();
+  this.cardList = cards.getCards();
+  console.log("cardlist" + this.cardList);
+  console.log("indexDeck" + this.indexDeck);
+  this.remainingCards = this.cardList.length - 1;
+  this.add.line(this.cameras.main.centerX, this.cameras.main.centerY, 0, 0, 1500, 0, 0x6666ff);
 
+  //Creation cartes joueur + cartes pile
+  this.playerFirstCardNumber = Math.floor(Math.random() * 56);
+  this.playerFirstCardNumber = 0;
+  this.textDeck = this.add.text(25, 10, this.remainingCards + " cartes restantes", { fontFamily: 'Comic Sans MS', fontSize: '30px', color: 'black' });
 
 
     for (let i = 0; i < 8; i++) {
