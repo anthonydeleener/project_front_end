@@ -1,38 +1,51 @@
 import Phaser from "phaser";
 class GameOverScene extends Phaser.Scene {
 
-    constructor ()
-    {
+    constructor() {
         super('GameOverScene');
     }
 
-    preload ()
-    {
+    init(data) {
+        this.timer = data.timer;
+    }
+
+    preload() {
+
+    }
+
+    create() {
         
-    }
 
-    create ()
-    {
-        this.input.on('pointerup', function (pointer) {
+        this.gameOverText = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY - 250, "GameOver", { fontFamily: 'Comic Sans MS', fontSize: '60px', color: 'black' });
+        this.gameOverText.setOrigin(0.5);
 
-            this.scene.start('CreateGameScene');
-
-        }, this);
+        this.timeText = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY - 100, "Ton temps : "+this.timer, { fontFamily: 'Comic Sans MS', fontSize: '56px', color: 'black' });
+        this.timeText.setOrigin(0.5);
 
 
-        console.log("GameOverScene");
-        var text = this.add.text(
-            640, 
-            360, 
-            "Hello GAME OVER", 
-            {
-                fontSize: 50,
-                color: "black",
-                fontStyle: "bold"
+        this.clickButton = this.add.text(this.cameras.main.centerX, this.cameras.main.centerY + 75, 'Rejouer!', { fontFamily: 'Comic Sans MS', fontSize: '56px', fill: 'black' })
+            .setInteractive({ useHandCursor: true })
+            .on('pointerover', () => this.enterButtonHoverState())
+
+            
+            .on('pointerup', () => {
+                this.restartGame();
             }
-        ).setOrigin(0.5);
+            );
+
+        this.clickButton.setOrigin(0.5);
+
 
 
     }
+    enterButtonHoverState() {
+        this.clickButton.setStyle({ fill: 'blue' });
+    }
+
+    restartGame() {
+        console.log("restart");
+        this.scene.start('CreateGameScene');
+    }
+
 }
 export default GameOverScene;

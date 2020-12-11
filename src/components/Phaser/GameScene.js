@@ -1,5 +1,4 @@
 import Phaser from "phaser";
-//import ScoreLabel from "./ScoreLabel.js"
 import Symbol from "./Symbol.js";
 import Cards from "./Cards.js";
 
@@ -12,9 +11,9 @@ class GameScene extends Phaser.Scene {
     super("game-scene");
     this.gameOver = false;
     this.timedEvent = undefined;
-    this.text = undefined;
+    this.textTimer = undefined;
     this.cardList = undefined;
-    this.indexDeck = 0;
+    this.indexDeck;
     this.firstKeySymbol = undefined;
     this.coordinatesX = undefined;
     this.coordinatesY = undefined;
@@ -22,48 +21,55 @@ class GameScene extends Phaser.Scene {
     this.textDeck = undefined;
     this.onObjectClicked = this.onObjectClicked.bind(this);
     this.remainingCards = undefined;
-    
+    this.gameObjectBefore = undefined;
+
   }
 
   preload() {
-    cards = new Cards();
-    this.cardList = cards.getCards();
-    this.remainingCards =  this.cardList.length-1;
+
     for (let i = 1; i <= 57/*cards.getNumberOfCards()*/; i++) {
       this.load.image(i, "../../assets/" + i + ".png");
     }
   }
 
   create() {
-    //Creation cartes joueur + cartes pile
-    this.playerFirstCardNumber = Math.floor(Math.random() * 56);
-    this.textDeck = this.add.text(300, 10, this.remainingCards +" cartes restantes", { color: 'black', fontSize: '30px ' });
-    
+  
+  this.indexDeck = 0;
+  cards = new Cards();
+  this.cardList = cards.getCards();
+  console.log("cardlist" + this.cardList);
+  console.log("indexDeck" + this.indexDeck);
+  this.remainingCards = this.cardList.length - 1;
+  this.add.line(this.cameras.main.centerX, this.cameras.main.centerY, 0, 0, 1500, 0, 0x6666ff);
+
+  //Creation cartes joueur + cartes pile
+  this.playerFirstCardNumber = Math.floor(Math.random() * 56);
+  this.playerFirstCardNumber = 0;
+  this.textDeck = this.add.text(25, 10, this.remainingCards + " cartes restantes", { fontFamily: 'Comic Sans MS', fontSize: '30px', color: 'black' });
+
+
     for (let i = 0; i < 8; i++) {
       let randomScale = Math.random() * 0.05 + 0.08;
       let randomY = Math.floor(Math.random() * (550 - 350 + 1)) + 350;
-      
-      cards.getPlayerCard().push(new Symbol(this.add.sprite(110 + (i*180), randomY, this.cardList[this.playerFirstCardNumber][i]).setInteractive().setScale(randomScale), this.playerFirstCardNumber));
+
+      cards.getPlayerCard().push(new Symbol(this.add.sprite(110 + (i * 180), randomY, this.cardList[this.playerFirstCardNumber][i]).setInteractive({ useHandCursor: true }).setScale(randomScale), this.playerFirstCardNumber));
       if (this.indexDeck == cards.getPlayerCard()[0].getCardNumber()) {
         this.indexDeck++;
       }
       randomScale = Math.random() * 0.05 + 0.08;
       randomY = Math.floor(Math.random() * (250 - 50 + 1)) + 50;
-      cards.getDeckCard().push(new Symbol(this.add.sprite(110 + (i * 180), randomY, this.cardList[this.indexDeck][i]).setInteractive().setScale(randomScale), this.indexDeck));
+      cards.getDeckCard().push(new Symbol(this.add.sprite(110 + (i * 180), randomY, this.cardList[this.indexDeck][i]).setInteractive({ useHandCursor: true }).setScale(randomScale), this.indexDeck));
     }
     this.indexDeck++;
-
+    console.log("indexDeck" + this.indexDeck);
 
     // Si click
     this.input.on('gameobjectdown', this.onObjectClicked);
-
     // timer display
-    this.text = this.add.text(450, 32);
-    this.timedEvent = this.time.addEvent({ delay: 60000, callback: this.onEvent, callbackScope: this });
-    //  The same as above, but uses a method signature to declare it (shorter, and compatible with GSAP syntax)
+    this.textTimer = this.add.text(1200, 10,"",{fontFamily: 'Comic Sans MS',color : 'black',fontSize:'30px'});
+    this.timedEvent = this.time.addEvent({ delay: 6000000, callback: this.onEvent, callbackScope: this });
+    // The same as above, but uses a method signature to declare it (shorter, and compatible with GSAP syntax)
     //timedEvent = this.time.delayedCall(3000, onEvent, [], GameScene);
-
-
   }
 
 
@@ -71,13 +77,15 @@ class GameScene extends Phaser.Scene {
     clickCounter++;
 
     if (clickCounter == 1) {
-     
+      this.gameObjectBefore = gameObject;
+      gameObject.setScale(0.2);
       this.firstKeySymbol = gameObject.texture.key;
       this.coordinatesX = gameObject.x;
       this.coordinatesY = gameObject.y;
     } else {
       if (this.firstKeySymbol == gameObject.texture.key && (this.coordinatesX != gameObject.x || this.coordinatesY != gameObject.y)) {
         console.log("CLICK 2 FOIS MEME SYMBOLE");
+        this.gameObjectBefore.setScale(0.12);
         //Supprimer card player et rajouter les nouvelles
         for (let i = 0; i < 8; i++) {
           cards.getPlayerCard().pop().getSprite().destroy();
@@ -100,28 +108,22 @@ class GameScene extends Phaser.Scene {
         console.log(this.indexDeck);
         // PARTIE TERMINEE
         if (this.indexDeck == this.cardList.length) {
-          this.gameOverText = this.add.text(470, 310, "GameOver", { color: 'black', fontSize: '60px ' });
-          this.gameOverText.setOrigin(0.5);
-          for(let i=0;i<8;i++){
-            cards.getPlayerCard().pop().getSprite().destroy();
-            this.textDeck.destroy();
-          }
-         
           this.gameOver = true;
         } else {
 
           for (let i = 0; i < 8; i++) {
             let randomY = Math.floor(Math.random() * (250 - 50 + 1)) + 50;
-            cards.getDeckCard().push(new Symbol(this.add.sprite(110 + (i * 180), randomY, this.cardList[this.indexDeck][i]).setInteractive().setScale(0.12), this.indexDeck));
+            cards.getDeckCard().push(new Symbol(this.add.sprite(110 + (i * 180), randomY, this.cardList[this.indexDeck][i]).setInteractive({ useHandCursor: true }).setScale(0.12), this.indexDeck));
           }
-          this.remainingCards --;
-          this.textDeck.setText(this.remainingCards +" cartes restantes");
+          this.remainingCards--;
+          this.textDeck.setText(this.remainingCards + " cartes restantes");
           this.indexDeck++;
         }
-        
-  
+
+
       } else {
         console.log("PERDU");
+        this.gameObjectBefore.setScale(0.12);
       }
       clickCounter = 0;
     }
@@ -137,16 +139,12 @@ class GameScene extends Phaser.Scene {
   update() {
     if (this.gameOver) {
       console.log("gameover");
-      
-      return;
+      this.gameOver = false;
+      this.scene.start('GameOverScene', { "timer": this.textTimer._text });
     }
     /* update timer */
-    this.text.setText('Timer ' + this.timedEvent.getElapsedSeconds().toString().substr(0, 3));
-    
+    this.textTimer.setText(this.timedEvent.getElapsedSeconds().toString().substr(0,5)+ " secondes");  
     }
-
-
-
 
 }
 
