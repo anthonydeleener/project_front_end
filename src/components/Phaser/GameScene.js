@@ -143,11 +143,7 @@ class GameScene extends Phaser.Scene {
       this.scene.start('GameOverScene', { "timer": this.textTimer._text });
     }
     /* update timer */
-<<<<<<< HEAD
-    this.textTimer.setText("Timer " + this.timedEvent.getElapsedSeconds().toString().substr(0,5)+ " seconds");  
-=======
     this.textTimer.setText(this.timedEvent.getElapsedSeconds().toString().substr(0,4)+ " secondes");  
->>>>>>> 9181a9d74981dad77b5c045461294db7b6061e3e
     }
 
 }
