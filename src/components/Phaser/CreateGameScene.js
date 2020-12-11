@@ -12,6 +12,8 @@ class CreateGameScene extends Phaser.Scene {
 
   constructor() {
     super('CreateGameScene');
+    this.onObjectClicked = this.onObjectClicked.bind(this);
+    this.nbeCartes = 0;
   }
 
   preload() {
@@ -79,9 +81,10 @@ class CreateGameScene extends Phaser.Scene {
 
     // Si click bouton choix nombre de carte
     if (gameObject.type == 'Text') {
-      nbeCartes = (nbeCartes+1)%3;
-      nbeCartesButton.setText(textList[nbeCartes]);
-      console.log(nbeCartes);
+      this.nbeCartes = (this.nbeCartes+1)%3;
+      nbeCartesButton.setText(textList[this.nbeCartes]);
+      console.log(this.nbeCartes);
+
     }
 
 
@@ -90,6 +93,15 @@ class CreateGameScene extends Phaser.Scene {
     if (gameObject.type == 'Sprite' && gameObject.texture.key.startsWith('createButton')) {
       // TODO
       console.log('lancement de la partie!');
+      
+      if(this.nbeCartes == 0){
+        this.nbeCartes = 10;
+      }else if(this.nbeCartes == 1){
+        this.nbeCartes = 25;
+      }else if(this.nbeCartes ==2){
+        this.nbeCartes = 57;
+      }
+      this.scene.start('game-scene', { "nbrCartes": this.nbeCartes });
     }
 
 
