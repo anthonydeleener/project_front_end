@@ -1,5 +1,5 @@
 import Phaser from "phaser";
-import { TextButton } from '../game-objetcts/text-button';
+//import { TextButton } from '../game-objetcts/text-button';
 import TypeGame from "./TypeGame.js";
 
 let typeGame = -1;
