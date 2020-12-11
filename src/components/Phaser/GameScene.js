@@ -33,14 +33,7 @@ class GameScene extends Phaser.Scene {
   }
 
   create() {
-
-
-
-
-  //Creation cartes joueur + cartes pile
-  this.playerFirstCardNumber = Math.floor(Math.random() * 56);
-  this.textDeck = this.add.text(300, 10, this.remainingCards +" cartes restantes", { color: 'black', fontSize: '30px ' });
-    
+  
   this.indexDeck = 0;
   cards = new Cards();
   this.cardList = cards.getCards();
@@ -73,7 +66,7 @@ class GameScene extends Phaser.Scene {
     // Si click
     this.input.on('gameobjectdown', this.onObjectClicked);
     // timer display
-    this.textTimer = this.add.text(1000, 10,"Timer ",{color : 'black',fontSize:'30px'});
+    this.textTimer = this.add.text(1200, 10,"",{fontFamily: 'Comic Sans MS',color : 'black',fontSize:'30px'});
     this.timedEvent = this.time.addEvent({ delay: 6000000, callback: this.onEvent, callbackScope: this });
     // The same as above, but uses a method signature to declare it (shorter, and compatible with GSAP syntax)
     //timedEvent = this.time.delayedCall(3000, onEvent, [], GameScene);
@@ -147,10 +140,14 @@ class GameScene extends Phaser.Scene {
     if (this.gameOver) {
       console.log("gameover");
       this.gameOver = false;
-      this.scene.start('GameOverScene', { "timer": "le timer " });
+      this.scene.start('GameOverScene', { "timer": this.textTimer._text });
     }
     /* update timer */
+<<<<<<< HEAD
     this.textTimer.setText("Timer " + this.timedEvent.getElapsedSeconds().toString().substr(0,5)+ " seconds");  
+=======
+    this.textTimer.setText(this.timedEvent.getElapsedSeconds().toString().substr(0,4)+ " secondes");  
+>>>>>>> 9181a9d74981dad77b5c045461294db7b6061e3e
     }
 
 }
