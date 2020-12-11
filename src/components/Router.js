@@ -4,8 +4,6 @@ import LoginPage from "./LoginPage.js";
 import RegisterPage from "./RegisterPage.js";
 import LogoutComponent from "./LogoutComponent.js";
 import ErrorPage from "./ErrorPage.js";
-import AddFilm from "./Film/AddFilm.js";
-import FilmListPage from "./Film/FilmListPage.js";
 import PhaserGamePage from "./Phaser/PhaserGamePage.js";
 
 
@@ -16,8 +14,6 @@ const routes = {
   "/register": RegisterPage,
   "/logout": LogoutComponent,
   "/error": ErrorPage,
-  "/films": FilmListPage,
-  "/films/add": AddFilm,
   "/game": PhaserGamePage,
 
 
