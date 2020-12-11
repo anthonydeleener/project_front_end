@@ -9,6 +9,7 @@ import "./stylesheets/style.css";
 import 'bootstrap/dist/css/bootstrap.css';
 /* load bootstrap module (JS) */
 import 'bootstrap';
+import ScrollArrow from "./components/ScrollArrow.js";
 
 const HEADER_TITLE = "JavaScript & Node.js full course";
 const FOOTER_TEXT = "Happy learning : )";
@@ -17,7 +18,7 @@ Navbar();
 Rules();
 
 ThemeDropDown();
-
+ScrollArrow();
 Router();
 
 

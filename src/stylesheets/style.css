@@ -50,3 +50,8 @@ input:valid {
 #page{
   color: black;
 }
+
+#footerText{
+  color: gray;
+  font-size: 12px;
+}
