@@ -20,7 +20,6 @@ const routes = {
   "/films/add": AddFilm,
   "/game": PhaserGamePage,
 
-
 };
 
 let navBar = document.querySelector("#navBar");

@@ -12,7 +12,7 @@ class GameScene extends Phaser.Scene {
     super("game-scene");
     this.gameOver = false;
     this.timedEvent = undefined;
-    this.text = undefined;
+    this.textTimer = undefined;
     this.cardList = undefined;
     this.indexDeck = 0;
     this.firstKeySymbol = undefined;
@@ -35,10 +35,17 @@ class GameScene extends Phaser.Scene {
   }
 
   create() {
-    //Creation cartes joueur + cartes pile
-    this.playerFirstCardNumber = Math.floor(Math.random() * 56);
-    this.textDeck = this.add.text(300, 10, this.remainingCards +" cartes restantes", { color: 'black', fontSize: '30px ' });
+
+
+
+
+  //Creation cartes joueur + cartes pile
+  this.playerFirstCardNumber = Math.floor(Math.random() * 56);
+  this.textDeck = this.add.text(300, 10, this.remainingCards +" cartes restantes", { color: 'black', fontSize: '30px ' });
     
+
+
+
     for (let i = 0; i < 8; i++) {
       let randomScale = Math.random() * 0.05 + 0.08;
       let randomY = Math.floor(Math.random() * (550 - 350 + 1)) + 350;
@@ -56,14 +63,11 @@ class GameScene extends Phaser.Scene {
 
     // Si click
     this.input.on('gameobjectdown', this.onObjectClicked);
-
     // timer display
-    this.text = this.add.text(450, 32);
-    this.timedEvent = this.time.addEvent({ delay: 60000, callback: this.onEvent, callbackScope: this });
-    //  The same as above, but uses a method signature to declare it (shorter, and compatible with GSAP syntax)
+    this.textTimer = this.add.text(1000, 10,"Timer ",{color : 'black',fontSize:'30px'});
+    this.timedEvent = this.time.addEvent({ delay: 6000000, callback: this.onEvent, callbackScope: this });
+    // The same as above, but uses a method signature to declare it (shorter, and compatible with GSAP syntax)
     //timedEvent = this.time.delayedCall(3000, onEvent, [], GameScene);
-
-
   }
 
 
@@ -141,8 +145,7 @@ class GameScene extends Phaser.Scene {
       return;
     }
     /* update timer */
-    this.text.setText('Timer ' + this.timedEvent.getElapsedSeconds().toString().substr(0, 3));
-    
+    this.textTimer.setText("Timer " + this.timedEvent.getElapsedSeconds().toString().substr(0,4)+ " seconds");  
     }
 
 
