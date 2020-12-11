@@ -9,15 +9,16 @@ const Rules = () => {
 
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
     <h2>Les bases</h2>
-    <article>Chaque joueur reçoit des cartes. Le but est de détecter un symbole commun entre la carte du millieu et celle
-    de votre deck. Une fois trouvé, cliquez sur les deux symboles correspondants. Vous vous débarasserez alors d'une de vos
-    cartes. Le premier à se débarasser de toutes ses cartes à gagné.</article>
+    <article>Chaque joueur reçoit des cartes. Le but est de détecter un symbole en commun entre la carte du millieu et celle
+    de votre deck. Une fois trouvé, cliquez sur les deux symboles correspondants. Vous récuperez alors la carte du millieu.
+    Le jeu s'arrête quand il n'y a plus de cartes au centre.</article>
     </div>
     <p></p>
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ml-auto" style="text-align: right">
     <h2>Mode solo</h2>
-    <article>Dans le mode solo, le but est de se débarasser de ses cartes le plus rapidement possible. Votre temps sera
-    chronometré, et vous pourrez ensuite vous comparer avec les meilleurs joueurs du site !</article>
+    <article>Dans le mode solo, le but est de de récuperer les cartes du centre le plus rapidement possible. Le jeu s'arrête
+    quand vous avez récuperé toutes les cartes. Votre temps sera chronometré, et vous pourrez ensuite vous comparer avec les
+    meilleurs joueurs du site !</article>
     </div>
 
     <div style="height: 50px"></div>

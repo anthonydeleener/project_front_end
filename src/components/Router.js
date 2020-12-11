@@ -7,6 +7,7 @@ import ErrorPage from "./ErrorPage.js";
 import AddFilm from "./Film/AddFilm.js";
 import FilmListPage from "./Film/FilmListPage.js";
 import PhaserGamePage from "./Phaser/PhaserGamePage.js";
+import ProfilePage from "./ProfilePage.js";
 
 const routes = {
   "/": LoginPage, // "/": HomePage,
@@ -17,7 +18,8 @@ const routes = {
   "/error": ErrorPage,
   "/films": FilmListPage,
   "/films/add": AddFilm,
-  "/game": PhaserGamePage
+  "/game": PhaserGamePage,
+  "/profile":ProfilePage
 
 };
 
