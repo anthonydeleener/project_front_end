@@ -15,7 +15,6 @@ const setUserSessionData = (user) => {
 
 const removeSessionData = () => {
   localStorage.removeItem(STORE_NAME);
-  localStorage.removeItem(THEME);
 };
 
 export {
