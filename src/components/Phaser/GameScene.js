@@ -2,6 +2,7 @@ import Phaser from "phaser";
 import Symbol from "./Symbol.js";
 import Cards from "./Cards.js";
 
+
 let cards;
 let clickCounter = 0;
 
@@ -20,7 +21,7 @@ class GameScene extends Phaser.Scene {
     this.playerFirstCardNumber = 0;
     this.textDeck = undefined;
     this.onSymbolClicked = this.onSymbolClicked.bind(this);
-    this.addDeckCard = this.addDeckCard.bind(this); //Verifier
+    this.addDeckCard = this.addDeckCard.bind(this);
     this.remainingCards = undefined;
     this.gameObjectBefore = undefined;
 
@@ -34,6 +35,7 @@ class GameScene extends Phaser.Scene {
     for (let i = 1; i <= 57; i++) {
       this.load.image(i, "../../assets/symbols/1/" + i + ".png");
     }
+    this.load.image('quitButton', "../../assets/buttonsImage/quitPartyButton.png");
   }
 
   create() {
@@ -46,6 +48,10 @@ class GameScene extends Phaser.Scene {
 
     //creation separation line
     this.add.line(this.cameras.main.centerX, this.cameras.main.centerY, 0, 0, 1500, 0, 0x6666ff);
+
+    //creation quit button
+    this.add.sprite(1415, 570, 'quitButton').setOrigin(0.5).setScale(0.2).setInteractive({ useHandCursor: true }).on('pointerdown', () => this.scene.start('CreateGameScene'));
+
 
     //draw of the player's first card
     this.playerFirstCardNumber = Math.floor(Math.random() * this.nbreCartes);
@@ -100,8 +106,6 @@ class GameScene extends Phaser.Scene {
         for (let i = 0; i < 8; i++) {
           cards.getDeckCard().pop();
         }
-
-
 
 
         //if end of the game
