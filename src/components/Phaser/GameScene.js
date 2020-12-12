@@ -105,12 +105,10 @@ class GameScene extends Phaser.Scene {
     if (clickCounter == 1) {
       this.gameObjectBefore = gameObject;
       gameObject.setScale(0.2);
-      this.firstKeySymbol = gameObject.texture.key;
-      this.coordinatesX = gameObject.x;
-      this.coordinatesY = gameObject.y;
+      
     } else {
       //click twice same symbol
-      if (this.firstKeySymbol == gameObject.texture.key && (this.coordinatesX != gameObject.x || this.coordinatesY != gameObject.y)) {
+      if (this.gameObjectBefore.texture.key == gameObject.texture.key && ((this.gameObjectBefore.y < 300 && gameObject.y > 300) || (this.gameObjectBefore.y > 300 && gameObject.y < 300))) {
         this.gameObjectBefore.setScale(0.12);
 
         //destroy player card
