@@ -48,6 +48,18 @@ const Rules = () => {
     </div>
 
     <div style="height: 50px"></div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="text-align: right;">
+            <img src="./assets/variantGameImage/variant3.png" alt="Tour infernale" style="width: 100px;">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <h2>Mode Noël</h2>
+            <article>Similaire au mode classique, mais avec des symboles de Noël. Plongez-vous au coeur de la féérie !</article>
+        </div>
+    </div>
+
+    <div style="height: 50px"></div>
     `;
 
 
@@ -59,10 +71,9 @@ const Rules = () => {
 
 new ScrollMagic.Scene({
     triggerElement: '#rules',
-    triggerHook: 0.5,
-    //duration: "80%", // hide 10% before exiting view (80% + 10% from bottom)
-    offset: 50 // move trigger to center of element
-}).setClassToggle("#rules", "visible") // add class to reveal
+    triggerHook: 0.7,
+    offset: 50 
+}).setClassToggle("#rules", "visible") 
     .addTo(controller);
 
 new ScrollMagic.Scene({

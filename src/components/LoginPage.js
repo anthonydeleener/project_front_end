@@ -13,7 +13,7 @@ let loginPage = `
 <form>
 <div class="form-group">
   <label for="username">Nom d'utilisateur</label>
-  <input class="form-control" id="username" type="text" name="username" placeholder="Entrez votre nom d'utilisateur" required="" pattern="^\\[a-zA-Z0-9_]{4,16}\$" />
+  <input class="form-control" id="username" type="text" name="username" placeholder="Entrez votre nom d'utilisateur" required="" pattern="^[a-zA-Z0-9_]{4,16}$" />
 </div>
 <div class="form-group">
   <label for="password">Mot de passe</label>
@@ -25,7 +25,7 @@ let loginPage = `
 </form>`;
 
 const LoginPage = () => {
-  setLayout("Login");
+  setLayout("");
   let page = document.querySelector("#page");
   page.innerHTML = loginPage;
   let loginForm = document.querySelector("form");
@@ -50,8 +50,8 @@ const onLogin = (e) => {
  
 
   fetch("/api/users/login", {
-    method: "POST", // *GET, POST, PUT, DELETE, etc.
-    body: JSON.stringify(user), // body data type must match "Content-Type" header
+    method: "POST", 
+    body: JSON.stringify(user), 
     headers: {
       "Content-Type": "application/json",
     },
@@ -71,7 +71,6 @@ const onUserLogin = (userData) => {
   console.log("onUserLogin:", userData);
   const user = { ...userData, isAutenticated: true };  
   setUserSessionData(user);
-  // re-render the navbar for the authenticated user
   Navbar();
   RedirectUrl("/");
 };
@@ -82,7 +81,6 @@ const onError = (err) => {
   if (err.message.includes("401")) errorMessage = "Wrong username or password.";
   else errorMessage = err.message;
   messageBoard.innerText = errorMessage;
-  // show the messageBoard div (add relevant Bootstrap class)
   messageBoard.classList.add("d-block");
 };
 

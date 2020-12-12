@@ -5,8 +5,8 @@ const Navbar = () => {
   let navbar;
   let user = getUserSessionData();
   if (user) {
-    navbar = `<nav class="navbar navbar-expand-lg mb-2" id="navBar">
-  <a class="navbar-brand" href="/" data-uri="/game">Dobble Game</a
+    navbar = `<nav class="navbar navbar-expand-lg mb-2 fixed-top" id="navBar" style="background: white; height: 10vh;">
+  <a class="navbar-brand" href="/" data-uri="/game">Symble</a
   ><button
     class="navbar-toggler"
     type="button"
@@ -26,8 +26,8 @@ const Navbar = () => {
   </div>
   </nav>`;
   } else {
-    navbar = `<nav class="navbar navbar-expand-lg mb-2" id="navBar">
-    <a class="navbar-brand" href="/" data-uri="/login">Dobble Game</a>
+    navbar = `<nav class="navbar navbar-expand-lg mb-2 fixed-top" id="navBar" style="background: white; height: 10vh;">
+    <a class="navbar-brand" href="/" data-uri="/login">Symble</a>
   <button
     class="navbar-toggler"
     type="button"
