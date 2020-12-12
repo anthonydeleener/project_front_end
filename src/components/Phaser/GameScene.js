@@ -24,21 +24,35 @@ class GameScene extends Phaser.Scene {
     this.addDeckCard = this.addDeckCard.bind(this);
     this.remainingCards = undefined;
     this.gameObjectBefore = undefined;
-    
+    this.christmasTheme = '';
   }
 
   init(data) {
     this.nbreCartes = data.nbrCartes;
+    this.typeGame = data.typeGame;
   }
 
   preload() {
+
     for (let i = 1; i <= 57; i++) {
       this.load.image(i, "../../assets/symbols/1/" + i + ".png");
+
     }
+    for (let i = 1; i <= 57; i++) {
+      this.load.image('christmas' + i, "../../assets/symbols/christmas/" + i + ".png");
+    }
+
+
     this.load.image('quitButton', "../../assets/buttonsImage/quitGameButton.png");
   }
 
   create() {
+    if (this.typeGame == 'type3') {
+      this.christmasTheme = 'christmas';
+    } else {
+      this.christmasTheme = '';
+    }
+
     cards = new Cards();
     this.cardList = cards.getCards(this.nbreCartes);
     this.remainingCards = this.cardList.length - 1;
@@ -48,6 +62,7 @@ class GameScene extends Phaser.Scene {
 
     //creation separation line
     this.add.line(this.cameras.main.centerX, this.cameras.main.centerY, 0, 0, 1500, 0, 0x6666ff);
+
 
     //creation quit button
     this.add.sprite(1415, 570, 'quitButton').setOrigin(0.5).setScale(0.2).setInteractive({ useHandCursor: true }).on('pointerdown', () => this.scene.start('CreateGameScene'));
@@ -61,7 +76,7 @@ class GameScene extends Phaser.Scene {
       //random position
       let randomY = Math.floor(Math.random() * (515 - 360 + 1)) + 360;
 
-      cards.getPlayerCard().push(new Symbol(this.add.sprite(110 + (i * 180), randomY, this.cardList[this.playerFirstCardNumber][i]).setInteractive({ useHandCursor: true }).setScale(this.randomSymbolScaling()), this.playerFirstCardNumber));
+      cards.getPlayerCard().push(new Symbol(this.add.sprite(110 + (i * 180), randomY, this.christmasTheme + this.cardList[this.playerFirstCardNumber][i]).setInteractive({ useHandCursor: true }).setScale(this.randomSymbolScaling()), this.playerFirstCardNumber));
 
     }
     //creation deck card
@@ -139,12 +154,12 @@ class GameScene extends Phaser.Scene {
     }
     for (let i = 0; i < 8; i++) {
       let randomY = Math.floor(Math.random() * (260 - 85 + 1)) + 85;
-      cards.getDeckCard().push(new Symbol(this.add.sprite(110 + (i * 180), randomY, this.cardList[this.indexDeck][i]).setInteractive({ useHandCursor: true }).setScale(this.randomSymbolScaling()), this.indexDeck));
+      cards.getDeckCard().push(new Symbol(this.add.sprite(110 + (i * 180), randomY, this.christmasTheme + this.cardList[this.indexDeck][i]).setInteractive({ useHandCursor: true }).setScale(this.randomSymbolScaling()), this.indexDeck));
     }
   }
 
-  randomSymbolScaling(){
-    let differentSize = [0.12,0.15,0.07];
+  randomSymbolScaling() {
+    let differentSize = [0.12, 0.15, 0.07];
     let i = Math.floor(Math.random() * (2 + 1));
     return differentSize[i];
   }

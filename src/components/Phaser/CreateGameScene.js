@@ -1,6 +1,6 @@
 import Phaser from "phaser";
 
-let typeGame;
+let typeGame = 'type1';
 let nbeCartes = 0;
 let textList = ['Peu de cartes (10)', 'Beaucoup de cartes (25)', 'Toutes les cartes (57)'];
 var nbeCartesButton;
@@ -68,7 +68,6 @@ class CreateGameScene extends Phaser.Scene {
     // Si click bouton choix nombre de carte
     if (gameObject.type == 'Sprite' && gameObject.texture.key.startsWith('type')) {
       typeGame = gameObject.texture.key;
-
       for (let i = 1; i <= nbeVariantes; i++) {
         spriteList[i].tint = 0x363636;
       }
@@ -95,7 +94,7 @@ class CreateGameScene extends Phaser.Scene {
       }else if(this.nbeCartes ==2){
         this.nbeCartes = 57;
       }
-      this.scene.start('game-scene', { "nbrCartes": this.nbeCartes });
+      this.scene.start('game-scene', { "nbrCartes": this.nbeCartes,"typeGame" : typeGame });
     }
 
 
