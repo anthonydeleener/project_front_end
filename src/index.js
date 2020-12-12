@@ -2,7 +2,6 @@ import { setLayout } from "./utils/render.js";
 import {Router} from "./Components/Router.js";
 import Navbar from "./Components/Navbar.js";
 import Rules from "./Components/Rules.js";
-import ThemeDropDown from "./Components/ThemeDropDown.js";
 /* use webpack style & css loader*/
 import "./stylesheets/style.css";
 /* load bootstrap css (web pack asset management) */
@@ -15,10 +14,11 @@ const HEADER_TITLE = "JavaScript & Node.js full course";
 const FOOTER_TEXT = "Happy learning : )";
 
 Navbar();
+
+ScrollArrow();
 Rules();
 
-ThemeDropDown();
-ScrollArrow();
+
 Router();
 
 

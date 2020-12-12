@@ -25,27 +25,31 @@ class GameScene extends Phaser.Scene {
 
   }
 
+  init(data) {
+    this.nbreCartes = data.nbrCartes;
+  }
+
   preload() {
 
-    for (let i = 1; i <= 57/*cards.getNumberOfCards()*/; i++) {
-      this.load.image(i, "../../assets/" + i + ".png");
+    for (let i = 1; i <= 57; i++) {
+      this.load.image(i, "../../assets/symbols/1/" + i + ".png");
     }
   }
 
   create() {
-  
-  this.indexDeck = 0;
-  cards = new Cards();
-  this.cardList = cards.getCards();
-  console.log("cardlist" + this.cardList);
-  console.log("indexDeck" + this.indexDeck);
-  this.remainingCards = this.cardList.length - 1;
-  this.add.line(this.cameras.main.centerX, this.cameras.main.centerY, 0, 0, 1500, 0, 0x6666ff);
+    
+    this.indexDeck = 0;
+    cards = new Cards();
+    this.cardList = cards.getCards(this.nbreCartes);
+    console.log("cardlist" + this.cardList);
+    console.log("indexDeck" + this.indexDeck);
+    this.remainingCards = this.cardList.length - 1;
+    this.add.line(this.cameras.main.centerX, this.cameras.main.centerY, 0, 0, 1500, 0, 0x6666ff);
 
-  //Creation cartes joueur + cartes pile
-  this.playerFirstCardNumber = Math.floor(Math.random() * 56);
-  this.playerFirstCardNumber = 0;
-  this.textDeck = this.add.text(25, 10, this.remainingCards + " cartes restantes", { fontFamily: 'Comic Sans MS', fontSize: '30px', color: 'black' });
+    //Creation cartes joueur + cartes pile
+    this.playerFirstCardNumber = Math.floor(Math.random() * this.nbreCartes);
+    
+    this.textDeck = this.add.text(25, 10, this.remainingCards + " cartes restantes", { fontFamily: 'Comic Sans MS', fontSize: '30px', color: 'black' });
 
 
     for (let i = 0; i < 8; i++) {
@@ -66,7 +70,7 @@ class GameScene extends Phaser.Scene {
     // Si click
     this.input.on('gameobjectdown', this.onObjectClicked);
     // timer display
-    this.textTimer = this.add.text(1200, 10,"",{fontFamily: 'Comic Sans MS',color : 'black',fontSize:'30px'});
+    this.textTimer = this.add.text(1260, 10, "", { fontFamily: 'Comic Sans MS', color: 'black', fontSize: '30px' });
     this.timedEvent = this.time.addEvent({ delay: 6000000, callback: this.onEvent, callbackScope: this });
     // The same as above, but uses a method signature to declare it (shorter, and compatible with GSAP syntax)
     //timedEvent = this.time.delayedCall(3000, onEvent, [], GameScene);
@@ -116,7 +120,12 @@ class GameScene extends Phaser.Scene {
             cards.getDeckCard().push(new Symbol(this.add.sprite(110 + (i * 180), randomY, this.cardList[this.indexDeck][i]).setInteractive({ useHandCursor: true }).setScale(0.12), this.indexDeck));
           }
           this.remainingCards--;
-          this.textDeck.setText(this.remainingCards + " cartes restantes");
+          if (this.remainingCards == 1) {
+            this.textDeck.setText(this.remainingCards + " carte restante");
+          } else {
+            this.textDeck.setText(this.remainingCards + " cartes restantes");
+          }
+
           this.indexDeck++;
         }
 
@@ -138,13 +147,12 @@ class GameScene extends Phaser.Scene {
 
   update() {
     if (this.gameOver) {
-      console.log("gameover");
       this.gameOver = false;
       this.scene.start('GameOverScene', { "timer": this.textTimer._text });
     }
     /* update timer */
-    this.textTimer.setText(this.timedEvent.getElapsedSeconds().toString().substr(0,5)+ " secondes");  
-    }
+    this.textTimer.setText(this.timedEvent.getElapsedSeconds().toString().substr(0, 5) + " secondes");
+  }
 
 }
 
