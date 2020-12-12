@@ -1,6 +1,6 @@
 let scrollArrow = document.querySelector("#scrollArrow");
-import ScrollMagic from 'scrollmagic';
-var controller = new ScrollMagic.Controller();
+
+
 
 const ScrollArrow = () => {
     let scrollArrow1;

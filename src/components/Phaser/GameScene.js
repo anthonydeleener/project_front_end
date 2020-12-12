@@ -35,7 +35,7 @@ class GameScene extends Phaser.Scene {
     for (let i = 1; i <= 57; i++) {
       this.load.image(i, "../../assets/symbols/1/" + i + ".png");
     }
-    this.load.image('quitButton', "../../assets/buttonsImage/quitPartyButton.png");
+    this.load.image('quitButton', "../../assets/buttonsImage/quitGameButton.png");
   }
 
   create() {
