@@ -25,7 +25,7 @@ let registerPage = `<form>
 </form>`;
 
 const RegisterPage = () => {
-  setLayout("Register");
+  setLayout("");
   let page = document.querySelector("#page");
   page.innerHTML = registerPage;
   let registerForm = document.querySelector("form");

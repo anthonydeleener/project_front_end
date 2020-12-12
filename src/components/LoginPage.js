@@ -23,7 +23,7 @@ let loginPage = `
 </form>`;
 
 const LoginPage = () => {
-  setLayout("Login");
+  setLayout("");
   let page = document.querySelector("#page");
   page.innerHTML = loginPage;
   let loginForm = document.querySelector("form");
