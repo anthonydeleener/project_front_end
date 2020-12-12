@@ -5,11 +5,9 @@ import {getUserSessionData, setUserSessionData} from "../utils/session.js";
 import { RedirectUrl } from "./Router.js";
 import Navbar from "./Navbar.js";
 import { setLayout } from "../utils/render.js";
-import {loginRegisterAnime} from "./anime.js";
 
 
 let loginPage = `
-<p class = animation style=font-size:30px> Bienvenu sur la page de login </p>
 <form>
 <div class="form-group">
   <label for="username">Nom d'utilisateur</label>
@@ -35,7 +33,6 @@ const LoginPage = () => {
     Navbar();
     RedirectUrl("/game");
   } else loginForm.addEventListener("submit", onLogin);
-  loginRegisterAnime();
 };
 
 const onLogin = (e) => {
@@ -84,11 +81,6 @@ const onError = (err) => {
   messageBoard.classList.add("d-block");
 };
 
-function loginAnime(){
-  var button = document.querySelector("button");
-  button.addEventListener("mouseover",function(){
-     button.style.width='40px';
-  })
-}
+
 
 export default LoginPage;

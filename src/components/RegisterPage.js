@@ -2,13 +2,11 @@ import { RedirectUrl } from "./Router.js";
 import Navbar from "./Navbar.js";
 import {setUserSessionData} from "../utils/session.js";
 import { setLayout } from "../utils/render.js";
-import {loginRegisterAnime} from "./anime.js";
+
 /* In a template literal, the ` (backtick), \ (backslash), and $ (dollar sign) characters should be 
 escaped using the escape character \ if they are to be included in their template value. 
 By default, all escape sequences in a template literal are ignored.*/
-let registerPage = `
-<p class = animation style=font-size:30px> Bienvenu sur la page de connection </p>
-<form>
+let registerPage = `<form>
 <div class="form-group">
   <label for="username">Nom d'utilisateur</label>
   <input class="form-control" id="username" type="text" name="username" placeholder="Entrez votre nom d'utilisateur" required="" pattern="^[a-zA-Z0-9_]{4,16}$" />
@@ -32,7 +30,6 @@ const RegisterPage = () => {
   page.innerHTML = registerPage;
   let registerForm = document.querySelector("form");
   registerForm.addEventListener("submit", onRegister);
-  loginRegisterAnime();
 };
 
 const onRegister = (e) => {

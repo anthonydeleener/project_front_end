@@ -53,22 +53,3 @@ input:valid {
   color: gray;
   font-size: 12px;
 }
-
-
-.animation.active {
-  animation-duration: 2s;
-  animation-name: slidein;
-  animation-iteration-count: 1;
-}
-
-@keyframes slidein {
-  from {
-    margin-left: 100%;
-    width: 300%; 
-  }
-
-  to {
-    margin-left: 0%;
-    width: 100%;
-  }
-}
