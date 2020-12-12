@@ -5,6 +5,8 @@ import Cards from "./Cards.js";
 
 let cards;
 let clickCounter = 0;
+let speedX = [];
+let speedY = [];
 
 class GameScene extends Phaser.Scene {
 
@@ -47,6 +49,12 @@ class GameScene extends Phaser.Scene {
   }
 
   create() {
+    if (this.typeGame == 'type2') {
+      for (let i = 0; i < 8; i++) {
+        speedX[i] = Math.floor(Math.random() * 7) -3;
+        speedY[i] = Math.floor(Math.random() * 7) -3;
+      }
+    }
     if (this.typeGame == 'type3') {
       this.christmasTheme = 'christmas';
     } else {
@@ -97,12 +105,10 @@ class GameScene extends Phaser.Scene {
     if (clickCounter == 1) {
       this.gameObjectBefore = gameObject;
       gameObject.setScale(0.2);
-      this.firstKeySymbol = gameObject.texture.key;
-      this.coordinatesX = gameObject.x;
-      this.coordinatesY = gameObject.y;
+      
     } else {
       //click twice same symbol
-      if (this.firstKeySymbol == gameObject.texture.key && (this.coordinatesX != gameObject.x || this.coordinatesY != gameObject.y)) {
+      if (this.gameObjectBefore.texture.key == gameObject.texture.key && ((this.gameObjectBefore.y < 300 && gameObject.y > 300) || (this.gameObjectBefore.y > 300 && gameObject.y < 300))) {
         this.gameObjectBefore.setScale(0.12);
 
         //destroy player card
@@ -112,6 +118,7 @@ class GameScene extends Phaser.Scene {
         //Put deck card in card player
         for (let i = 0; i < 8; i++) {
           cards.getDeckCard()[i].getSprite().y += 250;
+          cards.getDeckCard()[i].getSprite().x = 110 + (i * 180);
           cards.getPlayerCard().push(cards.getDeckCard()[i]);
         }
 
@@ -174,6 +181,29 @@ class GameScene extends Phaser.Scene {
 
     /* update timer */
     this.textTimer.setText(this.timedEvent.getElapsedSeconds().toString().substr(0, 5) + " secondes");
+
+
+    /* update position for tornado mode */
+    if (this.typeGame == 'type2') {
+
+      for (let i = 0; i < 8; i++) {
+        let picture = cards.getDeckCard()[i].getSprite();
+        picture.x += speedX[i];
+        picture.y += speedY[i];
+
+        if (picture.x < 50)
+          speedX[i] = Math.floor(Math.random() * 3) +1;
+        if (picture.x > 1450)
+          speedX[i] = Math.floor(Math.random() * 3) -3;
+
+        if (picture.y < 85)
+          speedY[i] = Math.floor(Math.random() * 3) +1;
+        if (picture.y > 260)
+          speedY[i] = Math.floor(Math.random() * 3) -3;
+      }
+
+    }
+    
   }
 
 }
