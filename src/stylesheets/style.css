@@ -30,7 +30,7 @@ input:valid {
 #rules.visible {
   opacity: 1;
   /*transform: translateY(-150px);*/
-  transition: all 3s ease-out; 
+  transition: all 3s ease-out; /*perso je prefere 1s (Anthony)*/
 }
 
 #toMakeInvisible{
