@@ -59,7 +59,7 @@ const Rules = () => {
 
 new ScrollMagic.Scene({
     triggerElement: '#rules',
-    triggerHook: 0.5,
+    triggerHook: 0.7,
     //duration: "80%", // hide 10% before exiting view (80% + 10% from bottom)
     offset: 50 // move trigger to center of element
 }).setClassToggle("#rules", "visible") // add class to reveal
