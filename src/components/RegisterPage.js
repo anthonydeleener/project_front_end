@@ -9,7 +9,7 @@ By default, all escape sequences in a template literal are ignored.*/
 let registerPage = `<form>
 <div class="form-group">
   <label for="username">Nom d'utilisateur</label>
-  <input class="form-control" id="username" type="text" name="username" placeholder="Entrez votre nom d'utilisateur" required="" pattern="^\\[a-zA-Z0-9_]{4,16}\$" />
+  <input class="form-control" id="username" type="text" name="username" placeholder="Entrez votre nom d'utilisateur" required="" pattern="^[a-zA-Z0-9_]{4,16}$" />
 </div>
 <div class="form-group">
   <label for="email">Adresse e-mail</label>
