@@ -28,7 +28,7 @@ const Rules = () => {
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <h2>Mode Classique</h2>
-            <article>Dans le mode solo, le but est de de récuperer les cartes du centre le plus rapidement possible. Le jeu s'arrête
+            <article>Dans le mode classique, le but est de de récuperer les cartes du centre le plus rapidement possible. Le jeu s'arrête
             quand vous avez récuperé toutes les cartes. Votre temps sera chronometré, et vous pourrez ensuite vous comparer avec les
             meilleurs joueurs du site !</article>
         </div>

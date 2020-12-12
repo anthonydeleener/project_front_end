@@ -25,8 +25,7 @@ input:valid {
   font-size: 20px;
  
   opacity: 0;
-  
-  transition: all 2s ease-out; 
+   
 }
 
 #rules.visible {
