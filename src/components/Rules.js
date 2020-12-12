@@ -48,6 +48,18 @@ const Rules = () => {
     </div>
 
     <div style="height: 50px"></div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" style="text-align: right;">
+            <img src="./assets/variantGameImage/variant3.png" alt="Tour infernale" style="width: 100px;">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <h2>Mode Noël</h2>
+            <article>Similaire au mode classique, mais avec des symboles de Noël. Plongez-vous au coeur de la féérie !</article>
+        </div>
+    </div>
+
+    <div style="height: 50px"></div>
     `;
 
 
