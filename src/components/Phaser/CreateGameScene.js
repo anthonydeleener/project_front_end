@@ -35,7 +35,7 @@ class CreateGameScene extends Phaser.Scene {
 
 
     // Boutons choix nombre de carte
-    var text = this.add.text(this.cameras.main.centerX-200, 320, "Nombre de cartes :",
+    this.add.text(this.cameras.main.centerX-200, 320, "Nombre de cartes :",
       {
         fontSize: 30,
         color: "black",
@@ -64,8 +64,6 @@ class CreateGameScene extends Phaser.Scene {
   }
 
   onObjectClicked(pointer, gameObject) {
-    //console.log(gameObject);
-    //console.log(gameObject.type);
 
     // Si click bouton choix nombre de carte
     if (gameObject.type == 'Sprite' && gameObject.texture.key.startsWith('type')) {
@@ -74,8 +72,7 @@ class CreateGameScene extends Phaser.Scene {
       for (let i = 1; i <= nbeVariantes; i++) {
         spriteList[i].tint = 0x363636;
       }
-      gameObject.tint = 0xffffff;;
-      //console.log(typeGame);
+      gameObject.tint = 0xffffff;
     }
 
 
@@ -91,9 +88,6 @@ class CreateGameScene extends Phaser.Scene {
 
     // Si click bouton créer partie
     if (gameObject.type == 'Sprite' && gameObject.texture.key.startsWith('createButton')) {
-      // TODO
-      console.log('lancement de la partie!');
-      
       if(this.nbeCartes == 0){
         this.nbeCartes = 10;
       }else if(this.nbeCartes == 1){
