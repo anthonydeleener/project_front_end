@@ -30,7 +30,7 @@ class CreateGameScene extends Phaser.Scene {
     // Boutons choix de la variante de jeu
     for (let i = 1; i <= nbeVariantes; i++) {
       spriteList[i] = this.add.sprite(this.cameras.main.centerX - (150 * nbeVariantes) + (300 / 2) * (1 + (i - 1) * 2), this.cameras.main.centerY - 200, 'type' + i);
-      spriteList[i].setOrigin(0.5).setScale(0.4).setInteractive();
+      spriteList[i].setOrigin(0.5).setScale(0.4).setInteractive({ useHandCursor: true });
     }
 
 
@@ -49,12 +49,12 @@ class CreateGameScene extends Phaser.Scene {
       fill: "blue",
       fontStyle: "bold"
     }
-    ).setOrigin(0.5).setInteractive();
+    ).setOrigin(0.5).setInteractive({ useHandCursor: true });
 
 
 
     // Bouton créer partie
-    this.add.sprite(this.cameras.main.centerX, this.cameras.main.centerY + 200, 'createButton').setOrigin(0.5).setScale(0.4).setInteractive();
+    this.add.sprite(this.cameras.main.centerX, this.cameras.main.centerY + 200, 'createButton').setOrigin(0.5).setScale(0.4).setInteractive({ useHandCursor: true });
 
 
 

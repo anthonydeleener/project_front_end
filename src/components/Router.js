@@ -1,5 +1,4 @@
 import HomePage from "./HomePage.js";
-import UserListPage from "./UserListPage.js";
 import LoginPage from "./LoginPage.js";
 import RegisterPage from "./RegisterPage.js";
 import LogoutComponent from "./LogoutComponent.js";
@@ -9,7 +8,6 @@ import PhaserGamePage from "./Phaser/PhaserGamePage.js";
 
 const routes = {
   "/": LoginPage, // "/": HomePage,
-  "/users": UserListPage,
   "/login": LoginPage,
   "/register": RegisterPage,
   "/logout": LogoutComponent,

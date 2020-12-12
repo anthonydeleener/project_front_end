@@ -27,13 +27,12 @@ class GameScene extends Phaser.Scene {
 
   init(data) {
     this.nbreCartes = data.nbrCartes;
-    
   }
 
   preload() {
 
     for (let i = 1; i <= 57; i++) {
-      this.load.image(i, "../../assets/" + i + ".png");
+      this.load.image(i, "../../assets/symbols/1/" + i + ".png");
     }
   }
 
@@ -148,7 +147,6 @@ class GameScene extends Phaser.Scene {
 
   update() {
     if (this.gameOver) {
-      console.log("gameover");
       this.gameOver = false;
       this.scene.start('GameOverScene', { "timer": this.textTimer._text });
     }

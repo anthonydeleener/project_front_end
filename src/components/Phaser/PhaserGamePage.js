@@ -35,8 +35,6 @@ const PhaserGamePage = () => {
     "transparent"    : true
   };
 
-    // there could be issues when a game was quit (events no longer working)
-    // therefore destroy any started game prior to recreate it
     if(game)
     game.destroy(true);
     game = new Phaser.Game(config);
