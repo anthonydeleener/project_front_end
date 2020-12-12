@@ -24,7 +24,7 @@ class GameScene extends Phaser.Scene {
     this.addDeckCard = this.addDeckCard.bind(this);
     this.remainingCards = undefined;
     this.gameObjectBefore = undefined;
-
+    
   }
 
   init(data) {
@@ -58,13 +58,10 @@ class GameScene extends Phaser.Scene {
 
     //creation player cards 
     for (let i = 0; i < 8; i++) {
-      //random position && scale
-      let randomScale = Math.random() * 0.05 + 0.08;
-  
+      //random position
       let randomY = Math.floor(Math.random() * (515 - 360 + 1)) + 360;
 
-      cards.getPlayerCard().push(new Symbol(this.add.sprite(110 + (i * 180), randomY, this.cardList[this.playerFirstCardNumber][i]).setInteractive({ useHandCursor: true }).setScale(randomScale), this.playerFirstCardNumber));
-
+      cards.getPlayerCard().push(new Symbol(this.add.sprite(110 + (i * 180), randomY, this.cardList[this.playerFirstCardNumber][i]).setInteractive({ useHandCursor: true }).setScale(this.randomSymbolScaling()), this.playerFirstCardNumber));
 
     }
     //creation deck card
@@ -99,7 +96,7 @@ class GameScene extends Phaser.Scene {
         }
         //Put deck card in card player
         for (let i = 0; i < 8; i++) {
-          cards.getDeckCard()[i].getSprite().y += 300;
+          cards.getDeckCard()[i].getSprite().y += 250;
           cards.getPlayerCard().push(cards.getDeckCard()[i]);
         }
 
@@ -128,7 +125,7 @@ class GameScene extends Phaser.Scene {
 
 
       } else {
-        this.gameObjectBefore.setScale(0.12);
+        this.gameObjectBefore.setScale(this.randomSymbolScaling());
       }
       clickCounter = 0;
     }
@@ -141,10 +138,15 @@ class GameScene extends Phaser.Scene {
       this.indexDeck++;
     }
     for (let i = 0; i < 8; i++) {
-      let randomScale = Math.random() * 0.05 + 0.08;
       let randomY = Math.floor(Math.random() * (260 - 85 + 1)) + 85;
-      cards.getDeckCard().push(new Symbol(this.add.sprite(110 + (i * 180), randomY, this.cardList[this.indexDeck][i]).setInteractive({ useHandCursor: true }).setScale(randomScale), this.indexDeck));
+      cards.getDeckCard().push(new Symbol(this.add.sprite(110 + (i * 180), randomY, this.cardList[this.indexDeck][i]).setInteractive({ useHandCursor: true }).setScale(this.randomSymbolScaling()), this.indexDeck));
     }
+  }
+
+  randomSymbolScaling(){
+    let differentSize = [0.12,0.15,0.07];
+    let i = Math.floor(Math.random() * (2 + 1));
+    return differentSize[i];
   }
 
 

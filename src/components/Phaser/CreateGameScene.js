@@ -5,7 +5,7 @@ let nbeCartes = 0;
 let textList = ['Peu de cartes (10)', 'Beaucoup de cartes (25)', 'Toutes les cartes (57)'];
 var nbeCartesButton;
 
-var nbeVariantes = 2;
+var nbeVariantes = 3;
 let spriteList = [];
 
 class CreateGameScene extends Phaser.Scene {
@@ -30,7 +30,7 @@ class CreateGameScene extends Phaser.Scene {
     // Boutons choix de la variante de jeu
     for (let i = 1; i <= nbeVariantes; i++) {
       spriteList[i] = this.add.sprite(this.cameras.main.centerX - (150 * nbeVariantes) + (300 / 2) * (1 + (i - 1) * 2), this.cameras.main.centerY - 200, 'type' + i);
-      spriteList[i].setOrigin(0.5).setScale(0.4).setInteractive({ useHandCursor: true });
+      spriteList[i].setOrigin(0.5).setScale(0.3).setInteractive({ useHandCursor: true });
     }
 
 
