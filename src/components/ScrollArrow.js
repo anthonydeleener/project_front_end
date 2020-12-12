@@ -8,18 +8,10 @@ const ScrollArrow = () => {
     return (scrollArrow.innerHTML = scrollArrow1);
 }
 
-/*new ScrollMagic.Scene({
-    triggerElement: '#rules',
-    triggerHook: 0.3,
-    //duration: "80%", // hide 10% before exiting view (80% + 10% from bottom)
-    offset: 50 // move trigger to center of element
-}).setClassToggle("#scrollArrow", "visible") // add class to reveal
-    .addTo(controller);
+window.addEventListener("scroll", hideScrollArrow);
 
-new ScrollMagic.Scene({
-    triggerElement: '#rules',
-    triggerHook: 0.3, 
-}).setClassToggle("#toMakeInvisible", "yes")
-.addTo(controller); */
+function hideScrollArrow() {
+    return scrollArrow.innerHTML = "";
+}
 
 export default ScrollArrow;
