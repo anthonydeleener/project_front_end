@@ -14,7 +14,7 @@ const Footer = () => {
             <div>Chih Huai Lin : chihhuai.lin@student.vinci.be</div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="text-align: center">
-            <h2>Symble</h2>
+            <img src="./assets/symble-logo.png" alt="Logo Symble" style="height: 10vh;">
         </div>
         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="text-align: right">
             <h3>Contenu issu de :</h2>

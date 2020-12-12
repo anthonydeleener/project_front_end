@@ -6,7 +6,7 @@ const Navbar = () => {
   let user = getUserSessionData();
   if (user) {
     navbar = `<nav class="navbar navbar-expand-lg mb-2 fixed-top" id="navBar" style="background: white; height: 10vh;">
-  <a class="navbar-brand" href="/" data-uri="/game">Symble</a
+  <a class="navbar-brand" href="/" data-uri="/game"><img src="./assets/symble-logo.png" alt="Logo Symble" style="height: 10vh;"></a
   ><button
     class="navbar-toggler"
     type="button"
@@ -21,13 +21,13 @@ const Navbar = () => {
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto">
       <a class="nav-item nav-link" href="#" data-uri="/logout">Se deconnecter</a>
-      <a class="nav-item nav-link disabled" href="#">${user.username}</a>
+      <a class="nav-item nav-link" href="#" data-uri="/account" style="color: grey;">${user.username}</a>
     </div>
   </div>
   </nav>`;
   } else {
     navbar = `<nav class="navbar navbar-expand-lg mb-2 fixed-top" id="navBar" style="background: white; height: 10vh;">
-    <a class="navbar-brand" href="/" data-uri="/login">Symble</a>
+    <a class="navbar-brand" href="/" data-uri="/login"><img src="./assets/symble-logo.png" alt="Logo Symble" style="height: 10vh;"></a>
   <button
     class="navbar-toggler"
     type="button"
@@ -52,8 +52,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-//<a class="nav-item nav-link" href="#" data-uri="/users">List users</a>
-//<a class="nav-item nav-link" href="#" data-uri="/films">List films</a>
-//<a class="nav-item nav-link" href="#" data-uri="/films/add">Add film</a>
-//<a class="nav-item nav-link" href="#" data-uri="/game">Play</a>
