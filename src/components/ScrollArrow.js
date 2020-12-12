@@ -8,10 +8,4 @@ const ScrollArrow = () => {
     return (scrollArrow.innerHTML = scrollArrow1);
 }
 
-window.addEventListener("scroll", hideScrollArrow);
-
-function hideScrollArrow() {
-    return scrollArrow.innerHTML = "";
-}
-
 export default ScrollArrow;
