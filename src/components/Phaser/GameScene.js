@@ -60,7 +60,8 @@ class GameScene extends Phaser.Scene {
     for (let i = 0; i < 8; i++) {
       //random position && scale
       let randomScale = Math.random() * 0.05 + 0.08;
-      let randomY = Math.floor(Math.random() * (550 - 350 + 1)) + 350;
+  
+      let randomY = Math.floor(Math.random() * (515 - 360 + 1)) + 360;
 
       cards.getPlayerCard().push(new Symbol(this.add.sprite(110 + (i * 180), randomY, this.cardList[this.playerFirstCardNumber][i]).setInteractive({ useHandCursor: true }).setScale(randomScale), this.playerFirstCardNumber));
 
@@ -141,7 +142,7 @@ class GameScene extends Phaser.Scene {
     }
     for (let i = 0; i < 8; i++) {
       let randomScale = Math.random() * 0.05 + 0.08;
-      let randomY = Math.floor(Math.random() * (250 - 50 + 1)) + 50;
+      let randomY = Math.floor(Math.random() * (260 - 85 + 1)) + 85;
       cards.getDeckCard().push(new Symbol(this.add.sprite(110 + (i * 180), randomY, this.cardList[this.indexDeck][i]).setInteractive({ useHandCursor: true }).setScale(randomScale), this.indexDeck));
     }
   }
