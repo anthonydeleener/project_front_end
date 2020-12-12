@@ -2,6 +2,7 @@ import Phaser from "phaser";
 import Symbol from "./Symbol.js";
 import Cards from "./Cards.js";
 
+
 let cards;
 let clickCounter = 0;
 
@@ -20,7 +21,7 @@ class GameScene extends Phaser.Scene {
     this.playerFirstCardNumber = 0;
     this.textDeck = undefined;
     this.onSymbolClicked = this.onSymbolClicked.bind(this);
-    this.addDeckCard = this.addDeckCard.bind(this); //Verifier
+    this.addDeckCard = this.addDeckCard.bind(this);
     this.remainingCards = undefined;
     this.gameObjectBefore = undefined;
 
@@ -34,6 +35,7 @@ class GameScene extends Phaser.Scene {
     for (let i = 1; i <= 57; i++) {
       this.load.image(i, "../../assets/symbols/1/" + i + ".png");
     }
+    this.load.image('quitButton', "../../assets/buttonsImage/quitGameButton.png");
   }
 
   create() {
@@ -47,6 +49,10 @@ class GameScene extends Phaser.Scene {
     //creation separation line
     this.add.line(this.cameras.main.centerX, this.cameras.main.centerY, 0, 0, 1500, 0, 0x6666ff);
 
+    //creation quit button
+    this.add.sprite(1415, 570, 'quitButton').setOrigin(0.5).setScale(0.2).setInteractive({ useHandCursor: true }).on('pointerdown', () => this.scene.start('CreateGameScene'));
+
+
     //draw of the player's first card
     this.playerFirstCardNumber = Math.floor(Math.random() * this.nbreCartes);
 
@@ -54,7 +60,8 @@ class GameScene extends Phaser.Scene {
     for (let i = 0; i < 8; i++) {
       //random position && scale
       let randomScale = Math.random() * 0.05 + 0.08;
-      let randomY = Math.floor(Math.random() * (550 - 350 + 1)) + 350;
+  
+      let randomY = Math.floor(Math.random() * (515 - 360 + 1)) + 360;
 
       cards.getPlayerCard().push(new Symbol(this.add.sprite(110 + (i * 180), randomY, this.cardList[this.playerFirstCardNumber][i]).setInteractive({ useHandCursor: true }).setScale(randomScale), this.playerFirstCardNumber));
 
@@ -102,8 +109,6 @@ class GameScene extends Phaser.Scene {
         }
 
 
-
-
         //if end of the game
         if (this.indexDeck == this.cardList.length || (this.indexDeck == this.playerFirstCardNumber && this.indexDeck + 1 == this.cardList.length)) {
           this.gameOver = true;
@@ -137,7 +142,7 @@ class GameScene extends Phaser.Scene {
     }
     for (let i = 0; i < 8; i++) {
       let randomScale = Math.random() * 0.05 + 0.08;
-      let randomY = Math.floor(Math.random() * (250 - 50 + 1)) + 50;
+      let randomY = Math.floor(Math.random() * (260 - 85 + 1)) + 85;
       cards.getDeckCard().push(new Symbol(this.add.sprite(110 + (i * 180), randomY, this.cardList[this.indexDeck][i]).setInteractive({ useHandCursor: true }).setScale(randomScale), this.indexDeck));
     }
   }

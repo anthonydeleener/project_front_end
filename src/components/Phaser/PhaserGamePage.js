@@ -10,7 +10,6 @@ import LoginPage from "../LoginPage.js";
 var game;
 
 const PhaserGamePage = () => {
-  //setLayout("Making your first Phaser 3 game");
   let user = getUserSessionData();
   if(user) {
     let phaserGame = `
@@ -30,7 +29,6 @@ const PhaserGamePage = () => {
       autoCenter: Phaser.Scale.CENTER_BOTH
     },
     scene: [ CreateGameScene, GameScene, GameOverScene],
-    //  parent DOM element into which the canvas created by the renderer will be injected.
     parent: "gameDiv",
     "transparent"    : true
   };
