@@ -1,4 +1,3 @@
-import HomePage from "./HomePage.js";
 import LoginPage from "./LoginPage.js";
 import RegisterPage from "./RegisterPage.js";
 import LogoutComponent from "./LogoutComponent.js";
@@ -8,7 +7,7 @@ import GeneralConditionsPage from "./GeneralConditionsPage.js";
 
 
 const routes = {
-  "/": LoginPage, // "/": HomePage,
+  "/": LoginPage,
   "/login": LoginPage,
   "/register": RegisterPage,
   "/logout": LogoutComponent,
@@ -18,7 +17,6 @@ const routes = {
 
 };
 
-let gdpr = document.querySelector("#gdpr");
 let navBar = document.querySelector("#navBar");
 let componentToRender;
 
@@ -59,6 +57,8 @@ const Router = () => {
       }
     }
   };
+
+  let gdpr = document.querySelector("#gdpr");
  
   navBar.addEventListener("click", onNavigate);
   gdpr.addEventListener("click",onNavigate);
