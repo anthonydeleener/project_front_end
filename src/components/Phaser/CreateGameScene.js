@@ -88,7 +88,7 @@ class CreateGameScene extends Phaser.Scene {
     // Si click bouton créer partie
     if (gameObject.type == 'Sprite' && gameObject.texture.key.startsWith('createButton')) {
       if(this.nbeCartes == 0){
-        this.nbeCartes = 3;
+        this.nbeCartes = 10;
       }else if(this.nbeCartes == 1){
         this.nbeCartes = 25;
       }else if(this.nbeCartes ==2){
