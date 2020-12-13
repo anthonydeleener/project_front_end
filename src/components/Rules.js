@@ -72,13 +72,12 @@ const Rules = () => {
 new ScrollMagic.Scene({
     triggerElement: '#rules',
     triggerHook: 0.7,
-    offset: 50 
 }).setClassToggle("#rules", "visible") 
     .addTo(controller);
 
 new ScrollMagic.Scene({
     triggerElement: '#rules',
-    triggerHook: 0.3, 
+    triggerHook: 0.8, 
 }).setClassToggle("#toMakeInvisible", "yes")
 .addTo(controller);
 

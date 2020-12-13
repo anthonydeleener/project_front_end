@@ -35,7 +35,7 @@ class CreateGameScene extends Phaser.Scene {
 
 
     // Boutons choix nombre de carte
-    this.add.text(this.cameras.main.centerX-200, 320, "Nombre de cartes :",
+    this.add.text(this.cameras.main.centerX-200, 300, "Nombre de cartes :",
       {
         fontSize: 30,
         color: "black",
@@ -43,7 +43,7 @@ class CreateGameScene extends Phaser.Scene {
       }
     ).setOrigin(0.5);
 
-    nbeCartesButton = this.add.text(this.cameras.main.centerX+200, 320, textList[nbeCartes],
+    nbeCartesButton = this.add.text(this.cameras.main.centerX+200, 300, textList[nbeCartes],
     { 
       fontSize: 25,
       fill: "blue",
@@ -88,7 +88,7 @@ class CreateGameScene extends Phaser.Scene {
     // Si click bouton créer partie
     if (gameObject.type == 'Sprite' && gameObject.texture.key.startsWith('createButton')) {
       if(this.nbeCartes == 0){
-        this.nbeCartes = 10;
+        this.nbeCartes = 3;
       }else if(this.nbeCartes == 1){
         this.nbeCartes = 25;
       }else if(this.nbeCartes ==2){

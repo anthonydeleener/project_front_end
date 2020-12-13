@@ -36,12 +36,12 @@ input:valid {
 #toMakeInvisible{
   opacity: 1;
   
-  transition: all 1s ease-out; 
+  transition: all 2s ease-out; 
 }
 #toMakeInvisible.yes{
   opacity: 0  ;
-  transform: translateY(-200px);
-  transition: all 1s ease-out; 
+  /*transform: translateY(-200px);*/
+  transition: all 2s ease-out; 
 
 }
 

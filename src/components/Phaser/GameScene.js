@@ -44,11 +44,11 @@ class GameScene extends Phaser.Scene {
       this.load.image('christmas' + i, "../../assets/symbols/christmas/" + i + ".png");
     }
 
-
     this.load.image('quitButton', "../../assets/buttonsImage/quitGameButton.png");
   }
 
   create() {
+  
     if (this.typeGame == 'type2') {
       for (let i = 0; i < 8; i++) {
         speedX[i] = Math.floor(Math.random() * 7) -3;
@@ -64,7 +64,7 @@ class GameScene extends Phaser.Scene {
     cards = new Cards();
     this.cardList = cards.getCards(this.nbreCartes);
     this.remainingCards = this.cardList.length - 1;
-    this.textDeck = this.add.text(25, 10, this.remainingCards + " cartes restantes", { fontFamily: 'Comic Sans MS', fontSize: '30px', color: 'black' });
+    this.textDeck = this.add.text(5, 5, this.remainingCards + " cartes restantes", { fontFamily: 'Comic Sans MS', fontSize: '20px', color: 'black' });
 
     this.indexDeck = 0;
 
@@ -73,7 +73,7 @@ class GameScene extends Phaser.Scene {
 
 
     //creation quit button
-    this.add.sprite(1415, 570, 'quitButton').setOrigin(0.5).setScale(0.2).setInteractive({ useHandCursor: true }).on('pointerdown', () => this.scene.start('CreateGameScene'));
+    this.add.sprite(1120, 520, 'quitButton').setOrigin(0.5).setScale(0.2).setInteractive({ useHandCursor: true }).on('pointerdown', () => this.scene.start('CreateGameScene'));
 
 
     //draw of the player's first card
@@ -82,9 +82,9 @@ class GameScene extends Phaser.Scene {
     //creation player cards 
     for (let i = 0; i < 8; i++) {
       //random position
-      let randomY = Math.floor(Math.random() * (515 - 360 + 1)) + 360;
+      let randomY = Math.floor(Math.random() * (455 - 330 + 1)) + 330;
 
-      cards.getPlayerCard().push(new Symbol(this.add.sprite(110 + (i * 180), randomY, this.christmasTheme + this.cardList[this.playerFirstCardNumber][i]).setInteractive({ useHandCursor: true }).setScale(this.randomSymbolScaling()), this.playerFirstCardNumber));
+      cards.getPlayerCard().push(new Symbol(this.add.sprite(50 + (i * 155), randomY, this.christmasTheme + this.cardList[this.playerFirstCardNumber][i]).setInteractive({ useHandCursor: true }).setScale(this.randomSymbolScaling()), this.playerFirstCardNumber));
 
     }
     //creation deck card
@@ -94,7 +94,7 @@ class GameScene extends Phaser.Scene {
     //if you click on a symbol
     this.input.on('gameobjectdown', this.onSymbolClicked);
     // timer display
-    this.textTimer = this.add.text(1260, 10, "", { fontFamily: 'Comic Sans MS', color: 'black', fontSize: '30px' });
+    this.textTimer = this.add.text(1040, 5, "", { fontFamily: 'Comic Sans MS', color: 'black', fontSize: '20px' });
     this.timedEvent = this.time.addEvent({ delay: 6000000, callback: this.onEvent, callbackScope: this });
   }
 
@@ -117,8 +117,8 @@ class GameScene extends Phaser.Scene {
         }
         //Put deck card in card player
         for (let i = 0; i < 8; i++) {
-          cards.getDeckCard()[i].getSprite().y += 250;
-          cards.getDeckCard()[i].getSprite().x = 110 + (i * 180);
+          cards.getDeckCard()[i].getSprite().y += 230;
+          cards.getDeckCard()[i].getSprite().x = 50 + (i * 155);
           cards.getPlayerCard().push(cards.getDeckCard()[i]);
         }
 
@@ -160,8 +160,8 @@ class GameScene extends Phaser.Scene {
       this.indexDeck++;
     }
     for (let i = 0; i < 8; i++) {
-      let randomY = Math.floor(Math.random() * (260 - 85 + 1)) + 85;
-      cards.getDeckCard().push(new Symbol(this.add.sprite(110 + (i * 180), randomY, this.christmasTheme + this.cardList[this.indexDeck][i]).setInteractive({ useHandCursor: true }).setScale(this.randomSymbolScaling()), this.indexDeck));
+      let randomY = Math.floor(Math.random() * (220 - 95 + 1)) + 95;
+      cards.getDeckCard().push(new Symbol(this.add.sprite(50 + (i * 155), randomY, this.christmasTheme + this.cardList[this.indexDeck][i]).setInteractive({ useHandCursor: true }).setScale(this.randomSymbolScaling()), this.indexDeck));
     }
   }
 
@@ -171,12 +171,13 @@ class GameScene extends Phaser.Scene {
     return differentSize[i];
   }
 
-
+  
   update() {
     //end of the game
     if (this.gameOver) {
       this.gameOver = false;
       this.scene.start('GameOverScene', { "timer": this.textTimer._text });
+      return;
     }
 
     /* update timer */
@@ -193,12 +194,12 @@ class GameScene extends Phaser.Scene {
 
         if (picture.x < 50)
           speedX[i] = Math.floor(Math.random() * 3) +1;
-        if (picture.x > 1450)
+        if (picture.x > 1150)
           speedX[i] = Math.floor(Math.random() * 3) -3;
 
-        if (picture.y < 85)
+        if (picture.y < 75)
           speedY[i] = Math.floor(Math.random() * 3) +1;
-        if (picture.y > 260)
+        if (picture.y > 240)
           speedY[i] = Math.floor(Math.random() * 3) -3;
       }
 

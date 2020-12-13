@@ -10,7 +10,7 @@ const Footer = () => {
             <h3>Contacter les developpeurs :</h2>
             <div>Anthony De Leener : anthony.deleener@student.vinci.be</div>
             <div>Joachim Renard : joachim.renard@student.vinci.be</div>
-            <div>Thibaut Gérard : thibaut.gerard@student.vinci.be</div>
+            <div>Thibaut Gérard : thibaut.t.gerard@student.vinci.be</div>
             <div>Chih Huai Lin : chihhuai.lin@student.vinci.be</div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="text-align: center">
