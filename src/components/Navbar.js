@@ -21,7 +21,7 @@ const Navbar = () => {
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto">
       <a class="nav-item nav-link" href="#" data-uri="/logout">Se deconnecter</a>
-      <a class="nav-item nav-link" href="#" data-uri="/account" style="color: grey;">${user.username}</a>
+      <a class="nav-item nav-link disabled" href="#">${user.username}</a>
     </div>
   </div>
   </nav>`;

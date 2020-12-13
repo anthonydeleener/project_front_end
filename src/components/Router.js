@@ -4,7 +4,7 @@ import RegisterPage from "./RegisterPage.js";
 import LogoutComponent from "./LogoutComponent.js";
 import ErrorPage from "./ErrorPage.js";
 import PhaserGamePage from "./Phaser/PhaserGamePage.js";
-import AccountPage from "./AccountPage.js";
+import GeneralConditionsPage from "./GeneralConditionsPage.js";
 
 
 const routes = {
@@ -14,7 +14,7 @@ const routes = {
   "/logout": LogoutComponent,
   "/error": ErrorPage,
   "/game": PhaserGamePage,
-  "/account": AccountPage,
+  "/conditions": GeneralConditionsPage,
 
 };
 
