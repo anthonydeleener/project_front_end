@@ -39,7 +39,7 @@ class CreateGameScene extends Phaser.Scene {
       {
         fontSize: 30,
         color: "black",
-        fontStyle: "bold"
+        fontFamily: 'Comic Sans MS'
       }
     ).setOrigin(0.5);
 
@@ -47,7 +47,7 @@ class CreateGameScene extends Phaser.Scene {
     { 
       fontSize: 25,
       fill: "blue",
-      fontStyle: "bold"
+      fontFamily: 'Comic Sans MS'
     }
     ).setOrigin(0.5).setInteractive({ useHandCursor: true });
 
