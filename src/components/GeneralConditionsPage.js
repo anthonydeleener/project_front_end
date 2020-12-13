@@ -7,8 +7,8 @@ let generalConditions = `
     <article>
       Les présentes conditions d'utilisation contribuent à déterminer la nature de votre relation avec Symble. D'une manière
       générale, nous vous autorisons à utiliser nos services si vous acceptez de respecter ces conditions, qui reflètent le
-      fonctionnement des activités de Symble et la façon dont nous nous rémunérons. Par les termes "Symble", "nous", "nos" et
-      "notre", nous désignons le site internet Symble sur lequel vous êtes.
+      fonctionnement des activités de Symble. Par les termes "Symble", "nous", "nos" et "notre", nous désignons le site internet
+      Symble sur lequel vous êtes.
     </article>
   </div>
 
