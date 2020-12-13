@@ -15,7 +15,7 @@ const Footer = () => {
         </div>
         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="text-align: center">
             <img src="./assets/symble-logo.png" alt="Logo Symble" style="height: 10vh;">
-            <div id="gdpr"><a class="nav-item nav-link" href="#" data-uri="/conditions">Conditions generales d'utilisation</a></div>
+            <div id="gdpr"><a class="nav-item nav-link" href="#" data-uri="/conditions">Conditions générales d'utilisation</a></div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="text-align: right">
             <h3>Contenu issu de :</h2>

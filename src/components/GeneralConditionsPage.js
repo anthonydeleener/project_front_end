@@ -35,14 +35,14 @@ let generalConditions = `
     <br>
     <article>
       L'utilisation de notre site internet, de notre logo, ou de notre jeu Symble est libre et gratuite, que ce soit à des fins
-      commerciales ou non. Elle doit cependant être mentionnée en indiquant l'URL de notre site, ou en mentionnant son nom et des
+      commerciales ou non. Elle doit cependant être mentionnée en indiquant l'URL de notre site, ou en mentionnant son nom et ses
       développeurs.
     </article>
   </div>
   `;
 
 const GeneralConditionsPage = () => {
-  setLayout("Conditions generales d'utilisation");
+  setLayout("Conditions générales d'utilisation");
   let page = document.querySelector("#page");
   page.innerHTML = generalConditions;
 
