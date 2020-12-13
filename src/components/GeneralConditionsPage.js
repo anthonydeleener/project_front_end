@@ -1,18 +1,20 @@
 import { setLayout } from "../utils/render.js";
 
 let generalConditions = `
-  <div style="height: 150vh;">
-
+  
+  <div>
     <br>
     <article>
-    Les présentes conditions d'utilisation contribuent à déterminer la nature de votre relation avec Symble. D'une manière
-    générale, nous vous autorisons à utiliser nos services si vous acceptez de respecter ces conditions, qui reflètent le
-    fonctionnement des activités de Symble et la façon dont nous nous rémunérons. Par les termes "Symble", "nous", "nos" et
-    "notre", nous désignons le site internet Symble sur lequel vous êtes.
+      Les présentes conditions d'utilisation contribuent à déterminer la nature de votre relation avec Symble. D'une manière
+      générale, nous vous autorisons à utiliser nos services si vous acceptez de respecter ces conditions, qui reflètent le
+      fonctionnement des activités de Symble et la façon dont nous nous rémunérons. Par les termes "Symble", "nous", "nos" et
+      "notre", nous désignons le site internet Symble sur lequel vous êtes.
     </article>
+  </div>
 
-    <div style="height: 100px;"></div>
+  <div style="height: 100px;"></div>
 
+  <div>
     <h4>Données personnelles</h4>
     <br>
     <article>
@@ -24,9 +26,11 @@ let generalConditions = `
       développeurs de notre site. Il sera alors de notre devoir de les supprimer dans les 30 jours suivant votre demande, conformément
       à la loi européenne sur la vie privée et les données personnelles.
     </article>
+  </div>
 
-    <div style="height: 100px;"></div>
+  <div style="height: 100px;"></div>
 
+  <div>
     <h4>Droits d'auteur</h4>
     <br>
     <article>
@@ -34,12 +38,17 @@ let generalConditions = `
       commerciales ou non. Elle doit cependant être mentionnée en indiquant l'URL de notre site, ou en mentionnant son nom et des
       développeurs.
     </article>
-  </div>`;
+  </div>
+  `;
 
 const GeneralConditionsPage = () => {
   setLayout("Conditions generales d'utilisation");
   let page = document.querySelector("#page");
   page.innerHTML = generalConditions;
+
+  document.querySelector("#rules").innerHTML = "";
+  document.querySelector("#scrollArrow").innerHTML = "";
+  document.querySelector("#blank-space-for-general-conditions").innerHTML = `<div style="height: 100vh"></div>`;
 };
 
 export default GeneralConditionsPage;
