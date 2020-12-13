@@ -50,10 +50,7 @@ class GameScene extends Phaser.Scene {
   create() {
   
     if (this.typeGame == 'type2') {
-      for (let i = 0; i < 8; i++) {
-        speedX[i] = Math.floor(Math.random() * 7) -3;
-        speedY[i] = Math.floor(Math.random() * 7) -3;
-      }
+      this.initSpeed();
     }
     if (this.typeGame == 'type3') {
       this.christmasTheme = 'christmas';
@@ -127,6 +124,11 @@ class GameScene extends Phaser.Scene {
           cards.getDeckCard().pop();
         }
 
+        if (this.typeGame == 'type2') {
+          //Change speed
+          this.initSpeed();
+        }
+
 
         //if end of the game
         if (this.indexDeck == this.cardList.length || (this.indexDeck == this.playerFirstCardNumber && this.indexDeck + 1 == this.cardList.length)) {
@@ -171,7 +173,14 @@ class GameScene extends Phaser.Scene {
     return differentSize[i];
   }
 
-  
+  initSpeed() {
+    for (let i = 0; i < 8; i++) {
+      speedX[i] = Math.floor(Math.random() * 7) -3;
+      speedY[i] = Math.floor(Math.random() * 7) -3;
+    }
+  }
+
+
   update() {
     //end of the game
     if (this.gameOver) {
