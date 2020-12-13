@@ -18,6 +18,7 @@ const routes = {
 
 };
 
+let gdpr = document.querySelector("#gdpr");
 let navBar = document.querySelector("#navBar");
 let componentToRender;
 
@@ -36,6 +37,7 @@ const Router = () => {
 
   /* manage click on the navBar*/
   const onNavigate = (e) => {
+    window.scrollTo(0,0); 
     let uri;
     if (e.target.tagName === "A") {
       e.preventDefault();
@@ -57,8 +59,9 @@ const Router = () => {
       }
     }
   };
-
+ 
   navBar.addEventListener("click", onNavigate);
+  gdpr.addEventListener("click",onNavigate);
 
   // Display the right component when the user use the browsing history
   window.addEventListener("popstate", () => {

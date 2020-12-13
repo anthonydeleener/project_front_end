@@ -11,9 +11,6 @@ import 'bootstrap';
 import ScrollArrow from "./components/ScrollArrow.js";
 import Footer from "./components/Footer.js";
 
-const HEADER_TITLE = "JavaScript & Node.js full course";
-const FOOTER_TEXT = "Happy learning : )";
-
 Navbar();
 ScrollArrow();
 Rules();

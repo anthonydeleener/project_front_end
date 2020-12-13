@@ -6,7 +6,7 @@ import { RedirectUrl } from "./Router.js";
 import Navbar from "./Navbar.js";
 import { setLayout } from "../utils/render.js";
 
-
+window.scrollTo(1000, 1000); 
 let loginPage = `
 <form>
 <div class="form-group">
